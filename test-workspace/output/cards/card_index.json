@@ -1,9 +1,9 @@
 {
-  "total_cards": 23,
-  "total_links": 151,
+  "total_cards": 26,
+  "total_links": 192,
   "cards": [
     {
-      "id": "card-ACSAustralia-00",
+      "id": "card-71f7-ACSAustralia-00",
       "type": "card",
       "title": "ACS（Australian Computer Society）",
       "subtitle": "表格: 路径 vs 条件",
@@ -13,19 +13,19 @@
         "visa"
       ],
       "tags": [
-        "ACS",
-        "VETASSESS",
-        "AITSL",
-        "职业评估",
-        "EA",
-        "ANZSCO",
-        "CDR",
-        "CPA",
-        "TRA",
-        "major",
         "ANMAC",
         "visa",
-        "assessment"
+        "EA",
+        "ACS",
+        "assessment",
+        "职业评估",
+        "ANZSCO",
+        "VETASSESS",
+        "TRA",
+        "AITSL",
+        "CDR",
+        "major",
+        "CPA"
       ],
       "source": "2026-07-11-strategy-assessment-guide.md",
       "table_headers": [
@@ -53,7 +53,7 @@
       "summary": ""
     },
     {
-      "id": "card-EAEngineersA-00",
+      "id": "card-71f7-EAEngineersA-00",
       "type": "card",
       "title": "EA（Engineers Australia）",
       "subtitle": "表格: 路径 vs 条件",
@@ -63,19 +63,19 @@
         "visa"
       ],
       "tags": [
-        "ACS",
-        "VETASSESS",
-        "AITSL",
-        "职业评估",
-        "EA",
-        "ANZSCO",
-        "CDR",
-        "CPA",
-        "TRA",
-        "major",
         "ANMAC",
         "visa",
-        "assessment"
+        "EA",
+        "ACS",
+        "assessment",
+        "职业评估",
+        "ANZSCO",
+        "VETASSESS",
+        "TRA",
+        "AITSL",
+        "CDR",
+        "major",
+        "CPA"
       ],
       "source": "2026-07-11-strategy-assessment-guide.md",
       "table_headers": [
@@ -103,7 +103,7 @@
       "summary": ""
     },
     {
-      "id": "card-VETASSESS-00",
+      "id": "card-71f7-VETASSESS-00",
       "type": "card",
       "title": "VETASSESS",
       "subtitle": "表格: 组别 vs 最低学历要求",
@@ -113,19 +113,19 @@
         "visa"
       ],
       "tags": [
-        "ACS",
-        "VETASSESS",
-        "AITSL",
-        "职业评估",
-        "EA",
-        "ANZSCO",
-        "CDR",
-        "CPA",
-        "TRA",
-        "major",
         "ANMAC",
         "visa",
-        "assessment"
+        "EA",
+        "ACS",
+        "assessment",
+        "职业评估",
+        "ANZSCO",
+        "VETASSESS",
+        "TRA",
+        "AITSL",
+        "CDR",
+        "major",
+        "CPA"
       ],
       "source": "2026-07-11-strategy-assessment-guide.md",
       "table_headers": [
@@ -168,7 +168,7 @@
       "summary": ""
     },
     {
-      "id": "card-ANMACNursing-00",
+      "id": "card-71f7-ANMACNursing-00",
       "type": "card",
       "title": "ANMAC（Nursing and Midwifery）",
       "subtitle": "表格: 类型 vs 费用",
@@ -178,19 +178,19 @@
         "visa"
       ],
       "tags": [
-        "ACS",
-        "VETASSESS",
-        "AITSL",
-        "职业评估",
-        "EA",
-        "ANZSCO",
-        "CDR",
-        "CPA",
-        "TRA",
-        "major",
         "ANMAC",
         "visa",
-        "assessment"
+        "EA",
+        "ACS",
+        "assessment",
+        "职业评估",
+        "ANZSCO",
+        "VETASSESS",
+        "TRA",
+        "AITSL",
+        "CDR",
+        "major",
+        "CPA"
       ],
       "source": "2026-07-11-strategy-assessment-guide.md",
       "table_headers": [
@@ -218,7 +218,7 @@
       "summary": ""
     },
     {
-      "id": "card-Top5失败原因-00",
+      "id": "card-71f7-Top5失败原因-00",
       "type": "card",
       "title": "Top 5 失败原因",
       "subtitle": "表格: 原因 vs 比例",
@@ -228,19 +228,19 @@
         "visa"
       ],
       "tags": [
-        "ACS",
-        "VETASSESS",
-        "AITSL",
-        "职业评估",
-        "EA",
-        "ANZSCO",
-        "CDR",
-        "CPA",
-        "TRA",
-        "major",
         "ANMAC",
         "visa",
-        "assessment"
+        "EA",
+        "ACS",
+        "assessment",
+        "职业评估",
+        "ANZSCO",
+        "VETASSESS",
+        "TRA",
+        "AITSL",
+        "CDR",
+        "major",
+        "CPA"
       ],
       "source": "2026-07-11-strategy-assessment-guide.md",
       "table_headers": [
@@ -284,6 +284,76 @@
       "summary": ""
     },
     {
+      "id": "card-71f7-关键概念-99",
+      "type": "card",
+      "title": "关键概念（23 个）",
+      "subtitle": "",
+      "topic": [
+        "assessment",
+        "major",
+        "visa"
+      ],
+      "tags": [
+        "ANMAC",
+        "visa",
+        "EA",
+        "ACS",
+        "assessment",
+        "职业评估",
+        "ANZSCO",
+        "VETASSESS",
+        "TRA",
+        "AITSL",
+        "CDR",
+        "major",
+        "CPA"
+      ],
+      "source": "2026-07-11-strategy-assessment-guide.md",
+      "concepts": [
+        {
+          "name": "适用人群",
+          "definition": "软件工程师、数据科学家、网络安全架构师等IT类职业"
+        },
+        {
+          "name": "2026关键变化",
+          "definition": "- 评估报告有效期从3年缩短至**2年**，过期需重新评估"
+        },
+        {
+          "name": "评估路径",
+          "definition": "| 路径 | 条件 | 说明 |"
+        },
+        {
+          "name": "费用",
+          "definition": "$530-$820 | **审理**：4-8周 | **有效期**：2年"
+        },
+        {
+          "name": "适用人群",
+          "definition": "土木、电气、机械、采矿等工程类"
+        },
+        {
+          "name": "评估路径",
+          "definition": "| 路径 | 条件 | 说明 |"
+        },
+        {
+          "name": "费用",
+          "definition": "$650-$1,260 | **审理**：12-18周 | **有效期**：3年"
+        },
+        {
+          "name": "2026新规",
+          "definition": "EA已启用高级查重系统，CDR抄袭将面临1年禁申。"
+        },
+        {
+          "name": "适用人群",
+          "definition": "360多个通用职业，涵盖管理、市场、设计、HR等非技术类职业"
+        },
+        {
+          "name": "2026新政策",
+          "definition": "启用Decision-Ready新政，材料不全直接拒评，无补件窗口期。需至少两类收入佐证（个税+银行流水/养老金）。"
+        }
+      ],
+      "summary": ""
+    },
+    {
       "id": "card-核心结论-00",
       "type": "card",
       "title": "2026-07-11-strategy-assessment-guide — 核心结论",
@@ -294,19 +364,19 @@
         "visa"
       ],
       "tags": [
-        "ACS",
-        "VETASSESS",
-        "AITSL",
-        "职业评估",
-        "EA",
-        "ANZSCO",
-        "CDR",
-        "CPA",
-        "TRA",
-        "major",
         "ANMAC",
         "visa",
-        "assessment"
+        "EA",
+        "ACS",
+        "assessment",
+        "职业评估",
+        "ANZSCO",
+        "VETASSESS",
+        "TRA",
+        "AITSL",
+        "CDR",
+        "major",
+        "CPA"
       ],
       "source": "2026-07-11-strategy-assessment-guide.md",
       "key_points": [
@@ -319,7 +389,7 @@
       "summary": ""
     },
     {
-      "id": "card-学生签证500-00",
+      "id": "card-9287-学生签证500-00",
       "type": "card",
       "title": "学生签证 500",
       "subtitle": "表格: 课程类型 vs 最低要求",
@@ -330,21 +400,21 @@
         "study"
       ],
       "tags": [
-        "备考策略",
-        "CCL",
-        "雅思",
-        "英语加分",
-        "四个7",
-        "NAATI",
-        "PTE",
-        "study",
-        "四个8",
         "八炸",
-        "七炸",
-        "托福",
+        "PTE",
+        "英语加分",
+        "NAATI",
         "visa",
+        "雅思",
+        "托福",
+        "四个7",
+        "CCL",
+        "study",
         "language",
-        "migration"
+        "七炸",
+        "migration",
+        "四个8",
+        "备考策略"
       ],
       "source": "2026-07-11-strategy-language-guide.md",
       "table_headers": [
@@ -382,7 +452,7 @@
       "summary": ""
     },
     {
-      "id": "card-技术移民EOI加分-00",
+      "id": "card-9287-技术移民EOI加分-00",
       "type": "card",
       "title": "技术移民 EOI 加分",
       "subtitle": "表格: 级别 vs 雅思",
@@ -393,21 +463,21 @@
         "study"
       ],
       "tags": [
-        "备考策略",
-        "CCL",
-        "雅思",
-        "英语加分",
-        "四个7",
-        "NAATI",
-        "PTE",
-        "study",
-        "四个8",
         "八炸",
-        "七炸",
-        "托福",
+        "PTE",
+        "英语加分",
+        "NAATI",
         "visa",
+        "雅思",
+        "托福",
+        "四个7",
+        "CCL",
+        "study",
         "language",
-        "migration"
+        "七炸",
+        "migration",
+        "四个8",
+        "备考策略"
       ],
       "source": "2026-07-11-strategy-language-guide.md",
       "table_headers": [
@@ -443,7 +513,7 @@
       "summary": ""
     },
     {
-      "id": "card-职业评估要求-00",
+      "id": "card-9287-职业评估要求-00",
       "type": "card",
       "title": "职业评估要求",
       "subtitle": "表格: 评估机构 vs 英语要求",
@@ -454,21 +524,21 @@
         "study"
       ],
       "tags": [
-        "备考策略",
-        "CCL",
-        "雅思",
-        "英语加分",
-        "四个7",
-        "NAATI",
-        "PTE",
-        "study",
-        "四个8",
         "八炸",
-        "七炸",
-        "托福",
+        "PTE",
+        "英语加分",
+        "NAATI",
         "visa",
+        "雅思",
+        "托福",
+        "四个7",
+        "CCL",
+        "study",
         "language",
-        "migration"
+        "七炸",
+        "migration",
+        "四个8",
+        "备考策略"
       ],
       "source": "2026-07-11-strategy-language-guide.md",
       "table_headers": [
@@ -506,7 +576,7 @@
       "summary": ""
     },
     {
-      "id": "card-考试对比-00",
+      "id": "card-9287-考试对比-00",
       "type": "card",
       "title": "考试对比",
       "subtitle": "表格: 维度 vs IELTS（雅思）",
@@ -517,21 +587,21 @@
         "study"
       ],
       "tags": [
-        "备考策略",
-        "CCL",
-        "雅思",
-        "英语加分",
-        "四个7",
-        "NAATI",
-        "PTE",
-        "study",
-        "四个8",
         "八炸",
-        "七炸",
-        "托福",
+        "PTE",
+        "英语加分",
+        "NAATI",
         "visa",
+        "雅思",
+        "托福",
+        "四个7",
+        "CCL",
+        "study",
         "language",
-        "migration"
+        "七炸",
+        "migration",
+        "四个8",
+        "备考策略"
       ],
       "source": "2026-07-11-strategy-language-guide.md",
       "table_headers": [
@@ -584,7 +654,7 @@
       "summary": ""
     },
     {
-      "id": "card-选择建议-00",
+      "id": "card-9287-选择建议-00",
       "type": "card",
       "title": "选择建议",
       "subtitle": "表格: 你的情况 vs 推荐",
@@ -595,21 +665,21 @@
         "study"
       ],
       "tags": [
-        "备考策略",
-        "CCL",
-        "雅思",
-        "英语加分",
-        "四个7",
-        "NAATI",
-        "PTE",
-        "study",
-        "四个8",
         "八炸",
-        "七炸",
-        "托福",
+        "PTE",
+        "英语加分",
+        "NAATI",
         "visa",
+        "雅思",
+        "托福",
+        "四个7",
+        "CCL",
+        "study",
         "language",
-        "migration"
+        "七炸",
+        "migration",
+        "四个8",
+        "备考策略"
       ],
       "source": "2026-07-11-strategy-language-guide.md",
       "table_headers": [
@@ -652,7 +722,7 @@
       "summary": ""
     },
     {
-      "id": "card-2025年PTE分数调整-00",
+      "id": "card-9287-2025年PTE分数调整-00",
       "type": "card",
       "title": "2025 年 PTE 分数调整的影响",
       "subtitle": "表格: 级别 vs 调整前 PTE",
@@ -663,21 +733,21 @@
         "study"
       ],
       "tags": [
-        "备考策略",
-        "CCL",
-        "雅思",
-        "英语加分",
-        "四个7",
-        "NAATI",
-        "PTE",
-        "study",
-        "四个8",
         "八炸",
-        "七炸",
-        "托福",
+        "PTE",
+        "英语加分",
+        "NAATI",
         "visa",
+        "雅思",
+        "托福",
+        "四个7",
+        "CCL",
+        "study",
         "language",
-        "migration"
+        "七炸",
+        "migration",
+        "四个8",
+        "备考策略"
       ],
       "source": "2026-07-11-strategy-language-guide.md",
       "table_headers": [
@@ -703,7 +773,7 @@
       "summary": ""
     },
     {
-      "id": "card-目标4个710分-00",
+      "id": "card-9287-目标4个710分-00",
       "type": "card",
       "title": "目标：4 个 7（+10 分）",
       "subtitle": "表格: 科目 vs 雅思",
@@ -714,21 +784,21 @@
         "study"
       ],
       "tags": [
-        "备考策略",
-        "CCL",
-        "雅思",
-        "英语加分",
-        "四个7",
-        "NAATI",
-        "PTE",
-        "study",
-        "四个8",
         "八炸",
-        "七炸",
-        "托福",
+        "PTE",
+        "英语加分",
+        "NAATI",
         "visa",
+        "雅思",
+        "托福",
+        "四个7",
+        "CCL",
+        "study",
         "language",
-        "migration"
+        "七炸",
+        "migration",
+        "四个8",
+        "备考策略"
       ],
       "source": "2026-07-11-strategy-language-guide.md",
       "table_headers": [
@@ -761,7 +831,7 @@
       "summary": ""
     },
     {
-      "id": "card-目标4个820分-00",
+      "id": "card-9287-目标4个820分-00",
       "type": "card",
       "title": "目标：4 个 8（+20 分）",
       "subtitle": "表格: 加分方式 vs 分数",
@@ -772,21 +842,21 @@
         "study"
       ],
       "tags": [
-        "备考策略",
-        "CCL",
-        "雅思",
-        "英语加分",
-        "四个7",
-        "NAATI",
-        "PTE",
-        "study",
-        "四个8",
         "八炸",
-        "七炸",
-        "托福",
+        "PTE",
+        "英语加分",
+        "NAATI",
         "visa",
+        "雅思",
+        "托福",
+        "四个7",
+        "CCL",
+        "study",
         "language",
-        "migration"
+        "七炸",
+        "migration",
+        "四个8",
+        "备考策略"
       ],
       "source": "2026-07-11-strategy-language-guide.md",
       "table_headers": [
@@ -843,6 +913,67 @@
       "summary": ""
     },
     {
+      "id": "card-9287-关键概念-99",
+      "type": "card",
+      "title": "关键概念（7 个）",
+      "subtitle": "",
+      "topic": [
+        "language",
+        "visa",
+        "migration",
+        "study"
+      ],
+      "tags": [
+        "八炸",
+        "PTE",
+        "英语加分",
+        "NAATI",
+        "visa",
+        "雅思",
+        "托福",
+        "四个7",
+        "CCL",
+        "study",
+        "language",
+        "七炸",
+        "migration",
+        "四个8",
+        "备考策略"
+      ],
+      "source": "2026-07-11-strategy-language-guide.md",
+      "concepts": [
+        {
+          "name": "影响",
+          "definition": "PTE 的\"八炸\"捷径在收窄。听力从 79→88 意味着之前靠模板刷到 79 的策略失效了。但相比雅思 4 个 8 的难度，PTE 仍然更友好。"
+        },
+        {
+          "name": "适合人群",
+          "definition": "大多数技术移民申请人"
+        },
+        {
+          "name": "备考策略",
+          "definition": "| 科目 | 雅思 | PTE |"
+        },
+        {
+          "name": "估算备考时间",
+          "definition": "- 基础 5.5→4 个 7：3-6 个月，每天 3-4 小时"
+        },
+        {
+          "name": "适合人群",
+          "definition": "EE 分数不够需要拉分的、追求 189 高分的"
+        },
+        {
+          "name": "现实判断",
+          "definition": "- **雅思 4 个 8**：中国考生达标率 <5%，口语写作尤其难"
+        },
+        {
+          "name": "估算备考时间",
+          "definition": "3-8 个月，每天 4-6 小时"
+        }
+      ],
+      "summary": ""
+    },
+    {
       "id": "card-核心结论-00",
       "type": "card",
       "title": "2026-07-11-strategy-language-guide — 核心结论",
@@ -854,21 +985,21 @@
         "study"
       ],
       "tags": [
-        "备考策略",
-        "CCL",
-        "雅思",
-        "英语加分",
-        "四个7",
-        "NAATI",
-        "PTE",
-        "study",
-        "四个8",
         "八炸",
-        "七炸",
-        "托福",
+        "PTE",
+        "英语加分",
+        "NAATI",
         "visa",
+        "雅思",
+        "托福",
+        "四个7",
+        "CCL",
+        "study",
         "language",
-        "migration"
+        "七炸",
+        "migration",
+        "四个8",
+        "备考策略"
       ],
       "source": "2026-07-11-strategy-language-guide.md",
       "key_points": [
@@ -880,7 +1011,7 @@
       "summary": ""
     },
     {
-      "id": "card-变化1签证费全面上涨约3-00",
+      "id": "card-4e78-变化1签证费全面上涨约3-00",
       "type": "card",
       "title": "变化 1：签证费全面上涨约 3%",
       "subtitle": "表格: 签证 vs 旧费用",
@@ -891,20 +1022,20 @@
         "study"
       ],
       "tags": [
-        "政策",
-        "7月1日",
-        "学生签证",
-        "薪资门槛",
-        "SID",
+        "482",
         "visa",
+        "SID",
         "改革",
+        "study",
+        "薪资门槛",
+        "学生签证",
+        "政策",
+        "migration",
         "配额",
         "新政",
-        "2026",
         "policy",
-        "482",
-        "study",
-        "migration"
+        "7月1日",
+        "2026"
       ],
       "source": "2026-07-11-strategy-policy-2026-changes.md",
       "table_headers": [
@@ -942,7 +1073,7 @@
       "summary": ""
     },
     {
-      "id": "card-变化2雇主担保薪资门槛上-00",
+      "id": "card-4e78-变化2雇主担保薪资门槛上-00",
       "type": "card",
       "title": "变化 2：雇主担保薪资门槛上调",
       "subtitle": "表格: 门槛类型 vs 旧标准",
@@ -953,20 +1084,20 @@
         "study"
       ],
       "tags": [
-        "政策",
-        "7月1日",
-        "学生签证",
-        "薪资门槛",
-        "SID",
+        "482",
         "visa",
+        "SID",
         "改革",
+        "study",
+        "薪资门槛",
+        "学生签证",
+        "政策",
+        "migration",
         "配额",
         "新政",
-        "2026",
         "policy",
-        "482",
-        "study",
-        "migration"
+        "7月1日",
+        "2026"
       ],
       "source": "2026-07-11-strategy-policy-2026-changes.md",
       "table_headers": [
@@ -998,7 +1129,7 @@
       "summary": ""
     },
     {
-      "id": "card-变化3永居配额185万内-00",
+      "id": "card-4e78-变化3永居配额185万内-00",
       "type": "card",
       "title": "变化 3：永居配额 18.5 万，内部结构大洗牌",
       "subtitle": "表格: 签证类别 vs 25-26",
@@ -1009,20 +1140,20 @@
         "study"
       ],
       "tags": [
-        "政策",
-        "7月1日",
-        "学生签证",
-        "薪资门槛",
-        "SID",
+        "482",
         "visa",
+        "SID",
         "改革",
+        "study",
+        "薪资门槛",
+        "学生签证",
+        "政策",
+        "migration",
         "配额",
         "新政",
-        "2026",
         "policy",
-        "482",
-        "study",
-        "migration"
+        "7月1日",
+        "2026"
       ],
       "source": "2026-07-11-strategy-policy-2026-changes.md",
       "table_headers": [
@@ -1072,7 +1203,7 @@
       "summary": ""
     },
     {
-      "id": "card-变化4SkillsinD-00",
+      "id": "card-4e78-变化4SkillsinD-00",
       "type": "card",
       "title": "变化 4：Skills in Demand（SID）签证全面取代旧 482",
       "subtitle": "表格: 通道 vs 年薪门槛",
@@ -1083,20 +1214,20 @@
         "study"
       ],
       "tags": [
-        "政策",
-        "7月1日",
-        "学生签证",
-        "薪资门槛",
-        "SID",
+        "482",
         "visa",
+        "SID",
         "改革",
+        "study",
+        "薪资门槛",
+        "学生签证",
+        "政策",
+        "migration",
         "配额",
         "新政",
-        "2026",
         "policy",
-        "482",
-        "study",
-        "migration"
+        "7月1日",
+        "2026"
       ],
       "source": "2026-07-11-strategy-policy-2026-changes.md",
       "table_headers": [
@@ -1132,7 +1263,7 @@
       "summary": ""
     },
     {
-      "id": "card-从管控到竞争的范式转换-00",
+      "id": "card-4e78-从管控到竞争的范式转换-00",
       "type": "card",
       "title": "从\"管控\"到\"竞争\"的范式转换",
       "subtitle": "表格: 旧逻辑（管控） vs 新逻辑（竞争）",
@@ -1143,20 +1274,20 @@
         "study"
       ],
       "tags": [
-        "政策",
-        "7月1日",
-        "学生签证",
-        "薪资门槛",
-        "SID",
+        "482",
         "visa",
+        "SID",
         "改革",
+        "study",
+        "薪资门槛",
+        "学生签证",
+        "政策",
+        "migration",
         "配额",
         "新政",
-        "2026",
         "policy",
-        "482",
-        "study",
-        "migration"
+        "7月1日",
+        "2026"
       ],
       "source": "2026-07-11-strategy-policy-2026-changes.md",
       "table_headers": [
@@ -1184,7 +1315,7 @@
       "summary": ""
     },
     {
-      "id": "card-留学生-00",
+      "id": "card-4e78-留学生-00",
       "type": "card",
       "title": "留学生",
       "subtitle": "表格: 时间 vs 事件",
@@ -1195,20 +1326,20 @@
         "study"
       ],
       "tags": [
-        "政策",
-        "7月1日",
-        "学生签证",
-        "薪资门槛",
-        "SID",
+        "482",
         "visa",
+        "SID",
         "改革",
+        "study",
+        "薪资门槛",
+        "学生签证",
+        "政策",
+        "migration",
         "配额",
         "新政",
-        "2026",
         "policy",
-        "482",
-        "study",
-        "migration"
+        "7月1日",
+        "2026"
       ],
       "source": "2026-07-11-strategy-policy-2026-changes.md",
       "table_headers": [
@@ -1251,7 +1382,7 @@
       "summary": ""
     },
     {
-      "id": "card-留学生-01",
+      "id": "card-4e78-留学生-01",
       "type": "card",
       "title": "留学生",
       "subtitle": "表格: 你的身份 vs 一句话",
@@ -1262,20 +1393,20 @@
         "study"
       ],
       "tags": [
-        "政策",
-        "7月1日",
-        "学生签证",
-        "薪资门槛",
-        "SID",
+        "482",
         "visa",
+        "SID",
         "改革",
+        "study",
+        "薪资门槛",
+        "学生签证",
+        "政策",
+        "migration",
         "配额",
         "新政",
-        "2026",
         "policy",
-        "482",
-        "study",
-        "migration"
+        "7月1日",
+        "2026"
       ],
       "source": "2026-07-11-strategy-policy-2026-changes.md",
       "table_headers": [
@@ -1307,6 +1438,62 @@
       "summary": ""
     },
     {
+      "id": "card-4e78-关键概念-99",
+      "type": "card",
+      "title": "关键概念（6 个）",
+      "subtitle": "",
+      "topic": [
+        "policy",
+        "visa",
+        "migration",
+        "study"
+      ],
+      "tags": [
+        "482",
+        "visa",
+        "SID",
+        "改革",
+        "study",
+        "薪资门槛",
+        "学生签证",
+        "政策",
+        "migration",
+        "配额",
+        "新政",
+        "policy",
+        "7月1日",
+        "2026"
+      ],
+      "source": "2026-07-11-strategy-policy-2026-changes.md",
+      "concepts": [
+        {
+          "name": "影响",
+          "definition": "全家同时申的家庭预算压力剧增，单是签证费就可能超过 $10,000。"
+        },
+        {
+          "name": "影响",
+          "definition": "7 月 1 日后递交的雇主提名必须满足新标准。薪资介于 $76,515-$79,498 之间的需在 6 月 30 日前递交提名。"
+        },
+        {
+          "name": "结构信号",
+          "definition": "- 技术类占 71.4%（约 132,240）"
+        },
+        {
+          "name": "SID 三大通道",
+          "definition": "| 通道 | 年薪门槛 | 职业清单 | 审理时间 | 永居途径 |"
+        },
+        {
+          "name": "关键改革",
+          "definition": "工作经验门槛从 2 年降至 1 年，180 天找新担保人期限（从 60 天延长）。"
+        },
+        {
+          "name": "体现在具体政策上",
+          "definition": "- 482→SID 改革：1 年工作经验+180 天找工宽限期=更灵活"
+        }
+      ],
+      "summary": ""
+    },
+    {
       "id": "card-核心结论-00",
       "type": "card",
       "title": "2026-07-11-strategy-policy-2026-changes — 核心结论",
@@ -1318,20 +1505,20 @@
         "study"
       ],
       "tags": [
-        "政策",
-        "7月1日",
-        "学生签证",
-        "薪资门槛",
-        "SID",
+        "482",
         "visa",
+        "SID",
         "改革",
+        "study",
+        "薪资门槛",
+        "学生签证",
+        "政策",
+        "migration",
         "配额",
         "新政",
-        "2026",
         "policy",
-        "482",
-        "study",
-        "migration"
+        "7月1日",
+        "2026"
       ],
       "source": "2026-07-11-strategy-policy-2026-changes.md",
       "key_points": [
@@ -1345,613 +1532,778 @@
   ],
   "links": [
     {
-      "source": "card-ACSAustralia-00",
-      "target": "card-EAEngineersA-00",
+      "source": "card-71f7-ACSAustralia-00",
+      "target": "card-71f7-EAEngineersA-00",
       "weight": 19
     },
     {
-      "source": "card-ACSAustralia-00",
-      "target": "card-VETASSESS-00",
+      "source": "card-71f7-ACSAustralia-00",
+      "target": "card-71f7-VETASSESS-00",
       "weight": 19
     },
     {
-      "source": "card-ACSAustralia-00",
-      "target": "card-ANMACNursing-00",
+      "source": "card-71f7-ACSAustralia-00",
+      "target": "card-71f7-ANMACNursing-00",
       "weight": 19
     },
     {
-      "source": "card-ACSAustralia-00",
-      "target": "card-Top5失败原因-00",
+      "source": "card-71f7-ACSAustralia-00",
+      "target": "card-71f7-Top5失败原因-00",
       "weight": 19
     },
     {
-      "source": "card-ACSAustralia-00",
-      "target": "card-核心结论-00",
+      "source": "card-71f7-ACSAustralia-00",
+      "target": "card-71f7-关键概念-99",
       "weight": 19
     },
     {
-      "source": "card-EAEngineersA-00",
-      "target": "card-VETASSESS-00",
-      "weight": 19
-    },
-    {
-      "source": "card-EAEngineersA-00",
-      "target": "card-ANMACNursing-00",
-      "weight": 19
-    },
-    {
-      "source": "card-EAEngineersA-00",
-      "target": "card-Top5失败原因-00",
-      "weight": 19
-    },
-    {
-      "source": "card-EAEngineersA-00",
+      "source": "card-71f7-ACSAustralia-00",
       "target": "card-核心结论-00",
       "weight": 19
     },
     {
-      "source": "card-VETASSESS-00",
-      "target": "card-ANMACNursing-00",
+      "source": "card-71f7-EAEngineersA-00",
+      "target": "card-71f7-VETASSESS-00",
       "weight": 19
     },
     {
-      "source": "card-VETASSESS-00",
-      "target": "card-Top5失败原因-00",
+      "source": "card-71f7-EAEngineersA-00",
+      "target": "card-71f7-ANMACNursing-00",
       "weight": 19
     },
     {
-      "source": "card-VETASSESS-00",
-      "target": "card-核心结论-00",
+      "source": "card-71f7-EAEngineersA-00",
+      "target": "card-71f7-Top5失败原因-00",
       "weight": 19
     },
     {
-      "source": "card-ANMACNursing-00",
-      "target": "card-Top5失败原因-00",
+      "source": "card-71f7-EAEngineersA-00",
+      "target": "card-71f7-关键概念-99",
       "weight": 19
     },
     {
-      "source": "card-ANMACNursing-00",
-      "target": "card-核心结论-00",
-      "weight": 19
-    },
-    {
-      "source": "card-Top5失败原因-00",
+      "source": "card-71f7-EAEngineersA-00",
       "target": "card-核心结论-00",
       "weight": 19
     },
     {
-      "source": "card-学生签证500-00",
-      "target": "card-技术移民EOI加分-00",
+      "source": "card-71f7-VETASSESS-00",
+      "target": "card-71f7-ANMACNursing-00",
+      "weight": 19
+    },
+    {
+      "source": "card-71f7-VETASSESS-00",
+      "target": "card-71f7-Top5失败原因-00",
+      "weight": 19
+    },
+    {
+      "source": "card-71f7-VETASSESS-00",
+      "target": "card-71f7-关键概念-99",
+      "weight": 19
+    },
+    {
+      "source": "card-71f7-VETASSESS-00",
+      "target": "card-核心结论-00",
+      "weight": 19
+    },
+    {
+      "source": "card-71f7-ANMACNursing-00",
+      "target": "card-71f7-Top5失败原因-00",
+      "weight": 19
+    },
+    {
+      "source": "card-71f7-ANMACNursing-00",
+      "target": "card-71f7-关键概念-99",
+      "weight": 19
+    },
+    {
+      "source": "card-71f7-ANMACNursing-00",
+      "target": "card-核心结论-00",
+      "weight": 19
+    },
+    {
+      "source": "card-71f7-Top5失败原因-00",
+      "target": "card-71f7-关键概念-99",
+      "weight": 19
+    },
+    {
+      "source": "card-71f7-Top5失败原因-00",
+      "target": "card-核心结论-00",
+      "weight": 19
+    },
+    {
+      "source": "card-71f7-关键概念-99",
+      "target": "card-核心结论-00",
+      "weight": 19
+    },
+    {
+      "source": "card-9287-学生签证500-00",
+      "target": "card-9287-技术移民EOI加分-00",
       "weight": 23
     },
     {
-      "source": "card-学生签证500-00",
-      "target": "card-职业评估要求-00",
+      "source": "card-9287-学生签证500-00",
+      "target": "card-9287-职业评估要求-00",
       "weight": 23
     },
     {
-      "source": "card-学生签证500-00",
-      "target": "card-考试对比-00",
+      "source": "card-9287-学生签证500-00",
+      "target": "card-9287-考试对比-00",
       "weight": 23
     },
     {
-      "source": "card-学生签证500-00",
-      "target": "card-选择建议-00",
+      "source": "card-9287-学生签证500-00",
+      "target": "card-9287-选择建议-00",
       "weight": 23
     },
     {
-      "source": "card-学生签证500-00",
-      "target": "card-2025年PTE分数调整-00",
+      "source": "card-9287-学生签证500-00",
+      "target": "card-9287-2025年PTE分数调整-00",
       "weight": 23
     },
     {
-      "source": "card-学生签证500-00",
-      "target": "card-目标4个710分-00",
+      "source": "card-9287-学生签证500-00",
+      "target": "card-9287-目标4个710分-00",
       "weight": 23
     },
     {
-      "source": "card-学生签证500-00",
-      "target": "card-目标4个820分-00",
+      "source": "card-9287-学生签证500-00",
+      "target": "card-9287-目标4个820分-00",
       "weight": 23
     },
     {
-      "source": "card-学生签证500-00",
+      "source": "card-9287-学生签证500-00",
+      "target": "card-9287-关键概念-99",
+      "weight": 23
+    },
+    {
+      "source": "card-9287-学生签证500-00",
       "target": "card-核心结论-00",
       "weight": 23
     },
     {
-      "source": "card-学生签证500-00",
-      "target": "card-变化1签证费全面上涨约3-00",
+      "source": "card-9287-学生签证500-00",
+      "target": "card-4e78-变化1签证费全面上涨约3-00",
       "weight": 9
     },
     {
-      "source": "card-学生签证500-00",
-      "target": "card-变化2雇主担保薪资门槛上-00",
+      "source": "card-9287-学生签证500-00",
+      "target": "card-4e78-变化2雇主担保薪资门槛上-00",
       "weight": 9
     },
     {
-      "source": "card-学生签证500-00",
-      "target": "card-变化3永居配额185万内-00",
+      "source": "card-9287-学生签证500-00",
+      "target": "card-4e78-变化3永居配额185万内-00",
       "weight": 9
     },
     {
-      "source": "card-学生签证500-00",
-      "target": "card-变化4SkillsinD-00",
+      "source": "card-9287-学生签证500-00",
+      "target": "card-4e78-变化4SkillsinD-00",
       "weight": 9
     },
     {
-      "source": "card-学生签证500-00",
-      "target": "card-从管控到竞争的范式转换-00",
+      "source": "card-9287-学生签证500-00",
+      "target": "card-4e78-从管控到竞争的范式转换-00",
       "weight": 9
     },
     {
-      "source": "card-学生签证500-00",
-      "target": "card-留学生-00",
+      "source": "card-9287-学生签证500-00",
+      "target": "card-4e78-留学生-00",
       "weight": 9
     },
     {
-      "source": "card-学生签证500-00",
-      "target": "card-留学生-01",
+      "source": "card-9287-学生签证500-00",
+      "target": "card-4e78-留学生-01",
       "weight": 9
     },
     {
-      "source": "card-学生签证500-00",
+      "source": "card-9287-学生签证500-00",
+      "target": "card-4e78-关键概念-99",
+      "weight": 9
+    },
+    {
+      "source": "card-9287-学生签证500-00",
       "target": "card-核心结论-00",
       "weight": 9
     },
     {
-      "source": "card-技术移民EOI加分-00",
-      "target": "card-职业评估要求-00",
+      "source": "card-9287-技术移民EOI加分-00",
+      "target": "card-9287-职业评估要求-00",
       "weight": 23
     },
     {
-      "source": "card-技术移民EOI加分-00",
-      "target": "card-考试对比-00",
+      "source": "card-9287-技术移民EOI加分-00",
+      "target": "card-9287-考试对比-00",
       "weight": 23
     },
     {
-      "source": "card-技术移民EOI加分-00",
-      "target": "card-选择建议-00",
+      "source": "card-9287-技术移民EOI加分-00",
+      "target": "card-9287-选择建议-00",
       "weight": 23
     },
     {
-      "source": "card-技术移民EOI加分-00",
-      "target": "card-2025年PTE分数调整-00",
+      "source": "card-9287-技术移民EOI加分-00",
+      "target": "card-9287-2025年PTE分数调整-00",
       "weight": 23
     },
     {
-      "source": "card-技术移民EOI加分-00",
-      "target": "card-目标4个710分-00",
+      "source": "card-9287-技术移民EOI加分-00",
+      "target": "card-9287-目标4个710分-00",
       "weight": 23
     },
     {
-      "source": "card-技术移民EOI加分-00",
-      "target": "card-目标4个820分-00",
+      "source": "card-9287-技术移民EOI加分-00",
+      "target": "card-9287-目标4个820分-00",
       "weight": 23
     },
     {
-      "source": "card-技术移民EOI加分-00",
+      "source": "card-9287-技术移民EOI加分-00",
+      "target": "card-9287-关键概念-99",
+      "weight": 23
+    },
+    {
+      "source": "card-9287-技术移民EOI加分-00",
       "target": "card-核心结论-00",
       "weight": 23
     },
     {
-      "source": "card-技术移民EOI加分-00",
-      "target": "card-变化1签证费全面上涨约3-00",
+      "source": "card-9287-技术移民EOI加分-00",
+      "target": "card-4e78-变化1签证费全面上涨约3-00",
       "weight": 9
     },
     {
-      "source": "card-技术移民EOI加分-00",
-      "target": "card-变化2雇主担保薪资门槛上-00",
+      "source": "card-9287-技术移民EOI加分-00",
+      "target": "card-4e78-变化2雇主担保薪资门槛上-00",
       "weight": 9
     },
     {
-      "source": "card-技术移民EOI加分-00",
-      "target": "card-变化3永居配额185万内-00",
+      "source": "card-9287-技术移民EOI加分-00",
+      "target": "card-4e78-变化3永居配额185万内-00",
       "weight": 9
     },
     {
-      "source": "card-技术移民EOI加分-00",
-      "target": "card-变化4SkillsinD-00",
+      "source": "card-9287-技术移民EOI加分-00",
+      "target": "card-4e78-变化4SkillsinD-00",
       "weight": 9
     },
     {
-      "source": "card-技术移民EOI加分-00",
-      "target": "card-从管控到竞争的范式转换-00",
+      "source": "card-9287-技术移民EOI加分-00",
+      "target": "card-4e78-从管控到竞争的范式转换-00",
       "weight": 9
     },
     {
-      "source": "card-技术移民EOI加分-00",
-      "target": "card-留学生-00",
+      "source": "card-9287-技术移民EOI加分-00",
+      "target": "card-4e78-留学生-00",
       "weight": 9
     },
     {
-      "source": "card-技术移民EOI加分-00",
-      "target": "card-留学生-01",
+      "source": "card-9287-技术移民EOI加分-00",
+      "target": "card-4e78-留学生-01",
       "weight": 9
     },
     {
-      "source": "card-技术移民EOI加分-00",
+      "source": "card-9287-技术移民EOI加分-00",
+      "target": "card-4e78-关键概念-99",
+      "weight": 9
+    },
+    {
+      "source": "card-9287-技术移民EOI加分-00",
       "target": "card-核心结论-00",
       "weight": 9
     },
     {
-      "source": "card-职业评估要求-00",
-      "target": "card-考试对比-00",
+      "source": "card-9287-职业评估要求-00",
+      "target": "card-9287-考试对比-00",
       "weight": 23
     },
     {
-      "source": "card-职业评估要求-00",
-      "target": "card-选择建议-00",
+      "source": "card-9287-职业评估要求-00",
+      "target": "card-9287-选择建议-00",
       "weight": 23
     },
     {
-      "source": "card-职业评估要求-00",
-      "target": "card-2025年PTE分数调整-00",
+      "source": "card-9287-职业评估要求-00",
+      "target": "card-9287-2025年PTE分数调整-00",
       "weight": 23
     },
     {
-      "source": "card-职业评估要求-00",
-      "target": "card-目标4个710分-00",
+      "source": "card-9287-职业评估要求-00",
+      "target": "card-9287-目标4个710分-00",
       "weight": 23
     },
     {
-      "source": "card-职业评估要求-00",
-      "target": "card-目标4个820分-00",
+      "source": "card-9287-职业评估要求-00",
+      "target": "card-9287-目标4个820分-00",
       "weight": 23
     },
     {
-      "source": "card-职业评估要求-00",
+      "source": "card-9287-职业评估要求-00",
+      "target": "card-9287-关键概念-99",
+      "weight": 23
+    },
+    {
+      "source": "card-9287-职业评估要求-00",
       "target": "card-核心结论-00",
       "weight": 23
     },
     {
-      "source": "card-职业评估要求-00",
-      "target": "card-变化1签证费全面上涨约3-00",
+      "source": "card-9287-职业评估要求-00",
+      "target": "card-4e78-变化1签证费全面上涨约3-00",
       "weight": 9
     },
     {
-      "source": "card-职业评估要求-00",
-      "target": "card-变化2雇主担保薪资门槛上-00",
+      "source": "card-9287-职业评估要求-00",
+      "target": "card-4e78-变化2雇主担保薪资门槛上-00",
       "weight": 9
     },
     {
-      "source": "card-职业评估要求-00",
-      "target": "card-变化3永居配额185万内-00",
+      "source": "card-9287-职业评估要求-00",
+      "target": "card-4e78-变化3永居配额185万内-00",
       "weight": 9
     },
     {
-      "source": "card-职业评估要求-00",
-      "target": "card-变化4SkillsinD-00",
+      "source": "card-9287-职业评估要求-00",
+      "target": "card-4e78-变化4SkillsinD-00",
       "weight": 9
     },
     {
-      "source": "card-职业评估要求-00",
-      "target": "card-从管控到竞争的范式转换-00",
+      "source": "card-9287-职业评估要求-00",
+      "target": "card-4e78-从管控到竞争的范式转换-00",
       "weight": 9
     },
     {
-      "source": "card-职业评估要求-00",
-      "target": "card-留学生-00",
+      "source": "card-9287-职业评估要求-00",
+      "target": "card-4e78-留学生-00",
       "weight": 9
     },
     {
-      "source": "card-职业评估要求-00",
-      "target": "card-留学生-01",
+      "source": "card-9287-职业评估要求-00",
+      "target": "card-4e78-留学生-01",
       "weight": 9
     },
     {
-      "source": "card-职业评估要求-00",
+      "source": "card-9287-职业评估要求-00",
+      "target": "card-4e78-关键概念-99",
+      "weight": 9
+    },
+    {
+      "source": "card-9287-职业评估要求-00",
       "target": "card-核心结论-00",
       "weight": 9
     },
     {
-      "source": "card-考试对比-00",
-      "target": "card-选择建议-00",
+      "source": "card-9287-考试对比-00",
+      "target": "card-9287-选择建议-00",
       "weight": 23
     },
     {
-      "source": "card-考试对比-00",
-      "target": "card-2025年PTE分数调整-00",
+      "source": "card-9287-考试对比-00",
+      "target": "card-9287-2025年PTE分数调整-00",
       "weight": 23
     },
     {
-      "source": "card-考试对比-00",
-      "target": "card-目标4个710分-00",
+      "source": "card-9287-考试对比-00",
+      "target": "card-9287-目标4个710分-00",
       "weight": 23
     },
     {
-      "source": "card-考试对比-00",
-      "target": "card-目标4个820分-00",
+      "source": "card-9287-考试对比-00",
+      "target": "card-9287-目标4个820分-00",
       "weight": 23
     },
     {
-      "source": "card-考试对比-00",
+      "source": "card-9287-考试对比-00",
+      "target": "card-9287-关键概念-99",
+      "weight": 23
+    },
+    {
+      "source": "card-9287-考试对比-00",
       "target": "card-核心结论-00",
       "weight": 23
     },
     {
-      "source": "card-考试对比-00",
-      "target": "card-变化1签证费全面上涨约3-00",
+      "source": "card-9287-考试对比-00",
+      "target": "card-4e78-变化1签证费全面上涨约3-00",
       "weight": 9
     },
     {
-      "source": "card-考试对比-00",
-      "target": "card-变化2雇主担保薪资门槛上-00",
+      "source": "card-9287-考试对比-00",
+      "target": "card-4e78-变化2雇主担保薪资门槛上-00",
       "weight": 9
     },
     {
-      "source": "card-考试对比-00",
-      "target": "card-变化3永居配额185万内-00",
+      "source": "card-9287-考试对比-00",
+      "target": "card-4e78-变化3永居配额185万内-00",
       "weight": 9
     },
     {
-      "source": "card-考试对比-00",
-      "target": "card-变化4SkillsinD-00",
+      "source": "card-9287-考试对比-00",
+      "target": "card-4e78-变化4SkillsinD-00",
       "weight": 9
     },
     {
-      "source": "card-考试对比-00",
-      "target": "card-从管控到竞争的范式转换-00",
+      "source": "card-9287-考试对比-00",
+      "target": "card-4e78-从管控到竞争的范式转换-00",
       "weight": 9
     },
     {
-      "source": "card-考试对比-00",
-      "target": "card-留学生-00",
+      "source": "card-9287-考试对比-00",
+      "target": "card-4e78-留学生-00",
       "weight": 9
     },
     {
-      "source": "card-考试对比-00",
-      "target": "card-留学生-01",
+      "source": "card-9287-考试对比-00",
+      "target": "card-4e78-留学生-01",
       "weight": 9
     },
     {
-      "source": "card-考试对比-00",
+      "source": "card-9287-考试对比-00",
+      "target": "card-4e78-关键概念-99",
+      "weight": 9
+    },
+    {
+      "source": "card-9287-考试对比-00",
       "target": "card-核心结论-00",
       "weight": 9
     },
     {
-      "source": "card-选择建议-00",
-      "target": "card-2025年PTE分数调整-00",
+      "source": "card-9287-选择建议-00",
+      "target": "card-9287-2025年PTE分数调整-00",
       "weight": 23
     },
     {
-      "source": "card-选择建议-00",
-      "target": "card-目标4个710分-00",
+      "source": "card-9287-选择建议-00",
+      "target": "card-9287-目标4个710分-00",
       "weight": 23
     },
     {
-      "source": "card-选择建议-00",
-      "target": "card-目标4个820分-00",
+      "source": "card-9287-选择建议-00",
+      "target": "card-9287-目标4个820分-00",
       "weight": 23
     },
     {
-      "source": "card-选择建议-00",
+      "source": "card-9287-选择建议-00",
+      "target": "card-9287-关键概念-99",
+      "weight": 23
+    },
+    {
+      "source": "card-9287-选择建议-00",
       "target": "card-核心结论-00",
       "weight": 23
     },
     {
-      "source": "card-选择建议-00",
-      "target": "card-变化1签证费全面上涨约3-00",
+      "source": "card-9287-选择建议-00",
+      "target": "card-4e78-变化1签证费全面上涨约3-00",
       "weight": 9
     },
     {
-      "source": "card-选择建议-00",
-      "target": "card-变化2雇主担保薪资门槛上-00",
+      "source": "card-9287-选择建议-00",
+      "target": "card-4e78-变化2雇主担保薪资门槛上-00",
       "weight": 9
     },
     {
-      "source": "card-选择建议-00",
-      "target": "card-变化3永居配额185万内-00",
+      "source": "card-9287-选择建议-00",
+      "target": "card-4e78-变化3永居配额185万内-00",
       "weight": 9
     },
     {
-      "source": "card-选择建议-00",
-      "target": "card-变化4SkillsinD-00",
+      "source": "card-9287-选择建议-00",
+      "target": "card-4e78-变化4SkillsinD-00",
       "weight": 9
     },
     {
-      "source": "card-选择建议-00",
-      "target": "card-从管控到竞争的范式转换-00",
+      "source": "card-9287-选择建议-00",
+      "target": "card-4e78-从管控到竞争的范式转换-00",
       "weight": 9
     },
     {
-      "source": "card-选择建议-00",
-      "target": "card-留学生-00",
+      "source": "card-9287-选择建议-00",
+      "target": "card-4e78-留学生-00",
       "weight": 9
     },
     {
-      "source": "card-选择建议-00",
-      "target": "card-留学生-01",
+      "source": "card-9287-选择建议-00",
+      "target": "card-4e78-留学生-01",
       "weight": 9
     },
     {
-      "source": "card-选择建议-00",
+      "source": "card-9287-选择建议-00",
+      "target": "card-4e78-关键概念-99",
+      "weight": 9
+    },
+    {
+      "source": "card-9287-选择建议-00",
       "target": "card-核心结论-00",
       "weight": 9
     },
     {
-      "source": "card-2025年PTE分数调整-00",
-      "target": "card-目标4个710分-00",
+      "source": "card-9287-2025年PTE分数调整-00",
+      "target": "card-9287-目标4个710分-00",
       "weight": 23
     },
     {
-      "source": "card-2025年PTE分数调整-00",
-      "target": "card-目标4个820分-00",
+      "source": "card-9287-2025年PTE分数调整-00",
+      "target": "card-9287-目标4个820分-00",
       "weight": 23
     },
     {
-      "source": "card-2025年PTE分数调整-00",
+      "source": "card-9287-2025年PTE分数调整-00",
+      "target": "card-9287-关键概念-99",
+      "weight": 23
+    },
+    {
+      "source": "card-9287-2025年PTE分数调整-00",
       "target": "card-核心结论-00",
       "weight": 23
     },
     {
-      "source": "card-2025年PTE分数调整-00",
-      "target": "card-变化1签证费全面上涨约3-00",
+      "source": "card-9287-2025年PTE分数调整-00",
+      "target": "card-4e78-变化1签证费全面上涨约3-00",
       "weight": 9
     },
     {
-      "source": "card-2025年PTE分数调整-00",
-      "target": "card-变化2雇主担保薪资门槛上-00",
+      "source": "card-9287-2025年PTE分数调整-00",
+      "target": "card-4e78-变化2雇主担保薪资门槛上-00",
       "weight": 9
     },
     {
-      "source": "card-2025年PTE分数调整-00",
-      "target": "card-变化3永居配额185万内-00",
+      "source": "card-9287-2025年PTE分数调整-00",
+      "target": "card-4e78-变化3永居配额185万内-00",
       "weight": 9
     },
     {
-      "source": "card-2025年PTE分数调整-00",
-      "target": "card-变化4SkillsinD-00",
+      "source": "card-9287-2025年PTE分数调整-00",
+      "target": "card-4e78-变化4SkillsinD-00",
       "weight": 9
     },
     {
-      "source": "card-2025年PTE分数调整-00",
-      "target": "card-从管控到竞争的范式转换-00",
+      "source": "card-9287-2025年PTE分数调整-00",
+      "target": "card-4e78-从管控到竞争的范式转换-00",
       "weight": 9
     },
     {
-      "source": "card-2025年PTE分数调整-00",
-      "target": "card-留学生-00",
+      "source": "card-9287-2025年PTE分数调整-00",
+      "target": "card-4e78-留学生-00",
       "weight": 9
     },
     {
-      "source": "card-2025年PTE分数调整-00",
-      "target": "card-留学生-01",
+      "source": "card-9287-2025年PTE分数调整-00",
+      "target": "card-4e78-留学生-01",
       "weight": 9
     },
     {
-      "source": "card-2025年PTE分数调整-00",
+      "source": "card-9287-2025年PTE分数调整-00",
+      "target": "card-4e78-关键概念-99",
+      "weight": 9
+    },
+    {
+      "source": "card-9287-2025年PTE分数调整-00",
       "target": "card-核心结论-00",
       "weight": 9
     },
     {
-      "source": "card-目标4个710分-00",
-      "target": "card-目标4个820分-00",
+      "source": "card-9287-目标4个710分-00",
+      "target": "card-9287-目标4个820分-00",
       "weight": 23
     },
     {
-      "source": "card-目标4个710分-00",
-      "target": "card-核心结论-00",
+      "source": "card-9287-目标4个710分-00",
+      "target": "card-9287-关键概念-99",
       "weight": 23
     },
     {
-      "source": "card-目标4个710分-00",
-      "target": "card-变化1签证费全面上涨约3-00",
-      "weight": 9
-    },
-    {
-      "source": "card-目标4个710分-00",
-      "target": "card-变化2雇主担保薪资门槛上-00",
-      "weight": 9
-    },
-    {
-      "source": "card-目标4个710分-00",
-      "target": "card-变化3永居配额185万内-00",
-      "weight": 9
-    },
-    {
-      "source": "card-目标4个710分-00",
-      "target": "card-变化4SkillsinD-00",
-      "weight": 9
-    },
-    {
-      "source": "card-目标4个710分-00",
-      "target": "card-从管控到竞争的范式转换-00",
-      "weight": 9
-    },
-    {
-      "source": "card-目标4个710分-00",
-      "target": "card-留学生-00",
-      "weight": 9
-    },
-    {
-      "source": "card-目标4个710分-00",
-      "target": "card-留学生-01",
-      "weight": 9
-    },
-    {
-      "source": "card-目标4个710分-00",
-      "target": "card-核心结论-00",
-      "weight": 9
-    },
-    {
-      "source": "card-目标4个820分-00",
+      "source": "card-9287-目标4个710分-00",
       "target": "card-核心结论-00",
       "weight": 23
     },
     {
-      "source": "card-目标4个820分-00",
-      "target": "card-变化1签证费全面上涨约3-00",
+      "source": "card-9287-目标4个710分-00",
+      "target": "card-4e78-变化1签证费全面上涨约3-00",
       "weight": 9
     },
     {
-      "source": "card-目标4个820分-00",
-      "target": "card-变化2雇主担保薪资门槛上-00",
+      "source": "card-9287-目标4个710分-00",
+      "target": "card-4e78-变化2雇主担保薪资门槛上-00",
       "weight": 9
     },
     {
-      "source": "card-目标4个820分-00",
-      "target": "card-变化3永居配额185万内-00",
+      "source": "card-9287-目标4个710分-00",
+      "target": "card-4e78-变化3永居配额185万内-00",
       "weight": 9
     },
     {
-      "source": "card-目标4个820分-00",
-      "target": "card-变化4SkillsinD-00",
+      "source": "card-9287-目标4个710分-00",
+      "target": "card-4e78-变化4SkillsinD-00",
       "weight": 9
     },
     {
-      "source": "card-目标4个820分-00",
-      "target": "card-从管控到竞争的范式转换-00",
+      "source": "card-9287-目标4个710分-00",
+      "target": "card-4e78-从管控到竞争的范式转换-00",
       "weight": 9
     },
     {
-      "source": "card-目标4个820分-00",
-      "target": "card-留学生-00",
+      "source": "card-9287-目标4个710分-00",
+      "target": "card-4e78-留学生-00",
       "weight": 9
     },
     {
-      "source": "card-目标4个820分-00",
-      "target": "card-留学生-01",
+      "source": "card-9287-目标4个710分-00",
+      "target": "card-4e78-留学生-01",
       "weight": 9
     },
     {
-      "source": "card-目标4个820分-00",
+      "source": "card-9287-目标4个710分-00",
+      "target": "card-4e78-关键概念-99",
+      "weight": 9
+    },
+    {
+      "source": "card-9287-目标4个710分-00",
+      "target": "card-核心结论-00",
+      "weight": 9
+    },
+    {
+      "source": "card-9287-目标4个820分-00",
+      "target": "card-9287-关键概念-99",
+      "weight": 23
+    },
+    {
+      "source": "card-9287-目标4个820分-00",
+      "target": "card-核心结论-00",
+      "weight": 23
+    },
+    {
+      "source": "card-9287-目标4个820分-00",
+      "target": "card-4e78-变化1签证费全面上涨约3-00",
+      "weight": 9
+    },
+    {
+      "source": "card-9287-目标4个820分-00",
+      "target": "card-4e78-变化2雇主担保薪资门槛上-00",
+      "weight": 9
+    },
+    {
+      "source": "card-9287-目标4个820分-00",
+      "target": "card-4e78-变化3永居配额185万内-00",
+      "weight": 9
+    },
+    {
+      "source": "card-9287-目标4个820分-00",
+      "target": "card-4e78-变化4SkillsinD-00",
+      "weight": 9
+    },
+    {
+      "source": "card-9287-目标4个820分-00",
+      "target": "card-4e78-从管控到竞争的范式转换-00",
+      "weight": 9
+    },
+    {
+      "source": "card-9287-目标4个820分-00",
+      "target": "card-4e78-留学生-00",
+      "weight": 9
+    },
+    {
+      "source": "card-9287-目标4个820分-00",
+      "target": "card-4e78-留学生-01",
+      "weight": 9
+    },
+    {
+      "source": "card-9287-目标4个820分-00",
+      "target": "card-4e78-关键概念-99",
+      "weight": 9
+    },
+    {
+      "source": "card-9287-目标4个820分-00",
+      "target": "card-核心结论-00",
+      "weight": 9
+    },
+    {
+      "source": "card-9287-关键概念-99",
+      "target": "card-核心结论-00",
+      "weight": 23
+    },
+    {
+      "source": "card-9287-关键概念-99",
+      "target": "card-4e78-变化1签证费全面上涨约3-00",
+      "weight": 9
+    },
+    {
+      "source": "card-9287-关键概念-99",
+      "target": "card-4e78-变化2雇主担保薪资门槛上-00",
+      "weight": 9
+    },
+    {
+      "source": "card-9287-关键概念-99",
+      "target": "card-4e78-变化3永居配额185万内-00",
+      "weight": 9
+    },
+    {
+      "source": "card-9287-关键概念-99",
+      "target": "card-4e78-变化4SkillsinD-00",
+      "weight": 9
+    },
+    {
+      "source": "card-9287-关键概念-99",
+      "target": "card-4e78-从管控到竞争的范式转换-00",
+      "weight": 9
+    },
+    {
+      "source": "card-9287-关键概念-99",
+      "target": "card-4e78-留学生-00",
+      "weight": 9
+    },
+    {
+      "source": "card-9287-关键概念-99",
+      "target": "card-4e78-留学生-01",
+      "weight": 9
+    },
+    {
+      "source": "card-9287-关键概念-99",
+      "target": "card-4e78-关键概念-99",
+      "weight": 9
+    },
+    {
+      "source": "card-9287-关键概念-99",
       "target": "card-核心结论-00",
       "weight": 9
     },
     {
       "source": "card-核心结论-00",
-      "target": "card-变化1签证费全面上涨约3-00",
+      "target": "card-4e78-变化1签证费全面上涨约3-00",
       "weight": 9
     },
     {
       "source": "card-核心结论-00",
-      "target": "card-变化2雇主担保薪资门槛上-00",
+      "target": "card-4e78-变化2雇主担保薪资门槛上-00",
       "weight": 9
     },
     {
       "source": "card-核心结论-00",
-      "target": "card-变化3永居配额185万内-00",
+      "target": "card-4e78-变化3永居配额185万内-00",
       "weight": 9
     },
     {
       "source": "card-核心结论-00",
-      "target": "card-变化4SkillsinD-00",
+      "target": "card-4e78-变化4SkillsinD-00",
       "weight": 9
     },
     {
       "source": "card-核心结论-00",
-      "target": "card-从管控到竞争的范式转换-00",
+      "target": "card-4e78-从管控到竞争的范式转换-00",
       "weight": 9
     },
     {
       "source": "card-核心结论-00",
-      "target": "card-留学生-00",
+      "target": "card-4e78-留学生-00",
       "weight": 9
     },
     {
       "source": "card-核心结论-00",
-      "target": "card-留学生-01",
+      "target": "card-4e78-留学生-01",
+      "weight": 9
+    },
+    {
+      "source": "card-核心结论-00",
+      "target": "card-4e78-关键概念-99",
       "weight": 9
     },
     {
@@ -1960,142 +2312,182 @@
       "weight": 9
     },
     {
-      "source": "card-变化1签证费全面上涨约3-00",
-      "target": "card-变化2雇主担保薪资门槛上-00",
+      "source": "card-4e78-变化1签证费全面上涨约3-00",
+      "target": "card-4e78-变化2雇主担保薪资门槛上-00",
       "weight": 22
     },
     {
-      "source": "card-变化1签证费全面上涨约3-00",
-      "target": "card-变化3永居配额185万内-00",
+      "source": "card-4e78-变化1签证费全面上涨约3-00",
+      "target": "card-4e78-变化3永居配额185万内-00",
       "weight": 22
     },
     {
-      "source": "card-变化1签证费全面上涨约3-00",
-      "target": "card-变化4SkillsinD-00",
+      "source": "card-4e78-变化1签证费全面上涨约3-00",
+      "target": "card-4e78-变化4SkillsinD-00",
       "weight": 22
     },
     {
-      "source": "card-变化1签证费全面上涨约3-00",
-      "target": "card-从管控到竞争的范式转换-00",
+      "source": "card-4e78-变化1签证费全面上涨约3-00",
+      "target": "card-4e78-从管控到竞争的范式转换-00",
       "weight": 22
     },
     {
-      "source": "card-变化1签证费全面上涨约3-00",
-      "target": "card-留学生-00",
+      "source": "card-4e78-变化1签证费全面上涨约3-00",
+      "target": "card-4e78-留学生-00",
       "weight": 22
     },
     {
-      "source": "card-变化1签证费全面上涨约3-00",
-      "target": "card-留学生-01",
+      "source": "card-4e78-变化1签证费全面上涨约3-00",
+      "target": "card-4e78-留学生-01",
       "weight": 22
     },
     {
-      "source": "card-变化1签证费全面上涨约3-00",
+      "source": "card-4e78-变化1签证费全面上涨约3-00",
+      "target": "card-4e78-关键概念-99",
+      "weight": 22
+    },
+    {
+      "source": "card-4e78-变化1签证费全面上涨约3-00",
       "target": "card-核心结论-00",
       "weight": 22
     },
     {
-      "source": "card-变化2雇主担保薪资门槛上-00",
-      "target": "card-变化3永居配额185万内-00",
+      "source": "card-4e78-变化2雇主担保薪资门槛上-00",
+      "target": "card-4e78-变化3永居配额185万内-00",
       "weight": 22
     },
     {
-      "source": "card-变化2雇主担保薪资门槛上-00",
-      "target": "card-变化4SkillsinD-00",
+      "source": "card-4e78-变化2雇主担保薪资门槛上-00",
+      "target": "card-4e78-变化4SkillsinD-00",
       "weight": 22
     },
     {
-      "source": "card-变化2雇主担保薪资门槛上-00",
-      "target": "card-从管控到竞争的范式转换-00",
+      "source": "card-4e78-变化2雇主担保薪资门槛上-00",
+      "target": "card-4e78-从管控到竞争的范式转换-00",
       "weight": 22
     },
     {
-      "source": "card-变化2雇主担保薪资门槛上-00",
-      "target": "card-留学生-00",
+      "source": "card-4e78-变化2雇主担保薪资门槛上-00",
+      "target": "card-4e78-留学生-00",
       "weight": 22
     },
     {
-      "source": "card-变化2雇主担保薪资门槛上-00",
-      "target": "card-留学生-01",
+      "source": "card-4e78-变化2雇主担保薪资门槛上-00",
+      "target": "card-4e78-留学生-01",
       "weight": 22
     },
     {
-      "source": "card-变化2雇主担保薪资门槛上-00",
+      "source": "card-4e78-变化2雇主担保薪资门槛上-00",
+      "target": "card-4e78-关键概念-99",
+      "weight": 22
+    },
+    {
+      "source": "card-4e78-变化2雇主担保薪资门槛上-00",
       "target": "card-核心结论-00",
       "weight": 22
     },
     {
-      "source": "card-变化3永居配额185万内-00",
-      "target": "card-变化4SkillsinD-00",
+      "source": "card-4e78-变化3永居配额185万内-00",
+      "target": "card-4e78-变化4SkillsinD-00",
       "weight": 22
     },
     {
-      "source": "card-变化3永居配额185万内-00",
-      "target": "card-从管控到竞争的范式转换-00",
+      "source": "card-4e78-变化3永居配额185万内-00",
+      "target": "card-4e78-从管控到竞争的范式转换-00",
       "weight": 22
     },
     {
-      "source": "card-变化3永居配额185万内-00",
-      "target": "card-留学生-00",
+      "source": "card-4e78-变化3永居配额185万内-00",
+      "target": "card-4e78-留学生-00",
       "weight": 22
     },
     {
-      "source": "card-变化3永居配额185万内-00",
-      "target": "card-留学生-01",
+      "source": "card-4e78-变化3永居配额185万内-00",
+      "target": "card-4e78-留学生-01",
       "weight": 22
     },
     {
-      "source": "card-变化3永居配额185万内-00",
+      "source": "card-4e78-变化3永居配额185万内-00",
+      "target": "card-4e78-关键概念-99",
+      "weight": 22
+    },
+    {
+      "source": "card-4e78-变化3永居配额185万内-00",
       "target": "card-核心结论-00",
       "weight": 22
     },
     {
-      "source": "card-变化4SkillsinD-00",
-      "target": "card-从管控到竞争的范式转换-00",
+      "source": "card-4e78-变化4SkillsinD-00",
+      "target": "card-4e78-从管控到竞争的范式转换-00",
       "weight": 22
     },
     {
-      "source": "card-变化4SkillsinD-00",
-      "target": "card-留学生-00",
+      "source": "card-4e78-变化4SkillsinD-00",
+      "target": "card-4e78-留学生-00",
       "weight": 22
     },
     {
-      "source": "card-变化4SkillsinD-00",
-      "target": "card-留学生-01",
+      "source": "card-4e78-变化4SkillsinD-00",
+      "target": "card-4e78-留学生-01",
       "weight": 22
     },
     {
-      "source": "card-变化4SkillsinD-00",
+      "source": "card-4e78-变化4SkillsinD-00",
+      "target": "card-4e78-关键概念-99",
+      "weight": 22
+    },
+    {
+      "source": "card-4e78-变化4SkillsinD-00",
       "target": "card-核心结论-00",
       "weight": 22
     },
     {
-      "source": "card-从管控到竞争的范式转换-00",
-      "target": "card-留学生-00",
+      "source": "card-4e78-从管控到竞争的范式转换-00",
+      "target": "card-4e78-留学生-00",
       "weight": 22
     },
     {
-      "source": "card-从管控到竞争的范式转换-00",
-      "target": "card-留学生-01",
+      "source": "card-4e78-从管控到竞争的范式转换-00",
+      "target": "card-4e78-留学生-01",
       "weight": 22
     },
     {
-      "source": "card-从管控到竞争的范式转换-00",
+      "source": "card-4e78-从管控到竞争的范式转换-00",
+      "target": "card-4e78-关键概念-99",
+      "weight": 22
+    },
+    {
+      "source": "card-4e78-从管控到竞争的范式转换-00",
       "target": "card-核心结论-00",
       "weight": 22
     },
     {
-      "source": "card-留学生-00",
-      "target": "card-留学生-01",
+      "source": "card-4e78-留学生-00",
+      "target": "card-4e78-留学生-01",
       "weight": 22
     },
     {
-      "source": "card-留学生-00",
+      "source": "card-4e78-留学生-00",
+      "target": "card-4e78-关键概念-99",
+      "weight": 22
+    },
+    {
+      "source": "card-4e78-留学生-00",
       "target": "card-核心结论-00",
       "weight": 22
     },
     {
-      "source": "card-留学生-01",
+      "source": "card-4e78-留学生-01",
+      "target": "card-4e78-关键概念-99",
+      "weight": 22
+    },
+    {
+      "source": "card-4e78-留学生-01",
+      "target": "card-核心结论-00",
+      "weight": 22
+    },
+    {
+      "source": "card-4e78-关键概念-99",
       "target": "card-核心结论-00",
       "weight": 22
     }

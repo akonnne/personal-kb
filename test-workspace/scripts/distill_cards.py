@@ -30,8 +30,13 @@ def parse_frontmatter(text):
     return fm, m.group(2).strip()
 
 
-def make_card_id(title, idx):
+def make_card_id(title, idx, source_name=""):
+    import hashlib
     slug = re.sub(r'[^\w\u4e00-\u9fff]', '', title)[:12]
+    # [FIX] 加源文件名 hash 防止跨文档碰撞
+    if source_name:
+        src_hash = hashlib.md5(source_name.encode()).hexdigest()[:4]
+        return f"card-{src_hash}-{slug}-{idx:02d}"
     return f"card-{slug}-{idx:02d}"
 
 
@@ -92,7 +97,7 @@ def extract_cards(strategy_path):
                 if cells:
                     data_rows.append(cells)
             
-            card_id = make_card_id(sec_title, ti)
+            card_id = make_card_id(sec_title, ti, source)
             card = {
                 "id": card_id,
                 "type": "card",
@@ -106,6 +111,26 @@ def extract_cards(strategy_path):
                 "summary": "",
             }
             cards.append(card)
+    
+    # [FIX] 概念提取：识别 **概念名**: 定义 格式的知识点
+    concept_pattern = re.compile(r'^\s*\*\*(.+?)\*\*[:：]\s*(.+)', re.MULTILINE)
+    concepts = concept_pattern.findall(body)
+    # 过滤掉太短的（可能是表格标题、加粗文字）
+    real_concepts = [(name.strip(), definition.strip()) for name, definition in concepts
+                     if len(name) > 1 and len(definition) > 3 and not name.startswith('|')]
+    if real_concepts:
+        concept_card = {
+            "id": make_card_id("关键概念", 99, source),
+            "type": "card",
+            "title": f"关键概念（{len(real_concepts)} 个）",
+            "subtitle": "",
+            "topic": topic,
+            "tags": tags,
+            "source": source,
+            "concepts": [{"name": n, "definition": d} for n, d in real_concepts[:10]],
+            "summary": "",
+        }
+        cards.append(concept_card)
     
     # 提取核心结论段落
     conclusion_match = re.search(r'## 核心结论\n\n(.*?)(?:\n\n##|\Z)', body, re.DOTALL)

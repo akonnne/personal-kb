@@ -331,6 +331,21 @@ def _short_error(e):
 
 def save_material_from_content(url, markdown_content, title="", date_str="", note=None):
     """从已抓取的 Markdown 内容保存素材（适用 WebFetch 等外部抓取）"""
+    # [FIX] URL 去重：检查 SQLite 是否已存在
+    try:
+        import sqlite3
+        db_path = PROJECT_ROOT / "system" / f"{PROJECT_ROOT.name}.db"
+        if db_path.exists():
+            conn = sqlite3.connect(str(db_path))
+            cur = conn.execute("SELECT id FROM materials WHERE source_url=?", (url,))
+            if cur.fetchone():
+                conn.close()
+                print(f"  ⏭ 跳过（已存在）: {url}")
+                return None
+            conn.close()
+    except Exception:
+        pass  # SQLite 不可用时忽略，不阻断流程
+    
     domain = urlparse(url).netloc
 
     # 标题：传入 > HTML提取 > Markdown提取 > domain

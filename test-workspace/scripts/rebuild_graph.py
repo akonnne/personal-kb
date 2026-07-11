@@ -100,6 +100,20 @@ topic_colors = {
     "study": "#7f8c8d", "policy": "#8e44ad", "finance": "#9b59b6",
     "university": "#16a085", "regional": "#27ae60", "language": "#f39c12"
 }
+# [FIX] 主题色自动扩展：超过 12 个主题时用 HSL 色环
+def _auto_color(idx, total):
+    """HSL 色环均匀分布：hue 0-360，sat 65%，light 45%"""
+    h = int(360 * idx / max(total, 1))
+    return f"hsl({h}, 65%, 45%)"
+
+all_topics = set()
+for c in cards:
+    all_topics.add(c["_primary"])
+for topic in sorted(all_topics):
+    if topic not in topic_colors:
+        idx = len(topic_colors)
+        topic_colors[topic] = _auto_color(idx, len(all_topics))
+
 topic_zh = {
     "visa": "签证", "migration": "移民", "job": "就业", "living": "生活",
     "major": "专业", "assessment": "职业评估", "study": "留学",
