@@ -11,6 +11,7 @@
 import sqlite3
 import json
 import re
+import os
 from pathlib import Path
 from datetime import datetime
 from typing import Optional
@@ -41,7 +42,9 @@ def cjk_query(keyword: str) -> str:
     return f'"{spaced.strip()}"'
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-DB_PATH = PROJECT_ROOT / "system" / "australia.db"
+# [FIX] 数据库名取 workspace 目录名，避免多 workspace 冲突
+DB_NAME = os.environ.get("KB_DB_NAME", PROJECT_ROOT.name + ".db")
+DB_PATH = PROJECT_ROOT / "system" / DB_NAME
 
 INPUT_DIR = PROJECT_ROOT / "input"
 OUTPUT_DIR = PROJECT_ROOT / "output"

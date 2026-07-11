@@ -109,6 +109,20 @@ def extract_cards(strategy_path):
     
     # 提取核心结论段落
     conclusion_match = re.search(r'## 核心结论\n\n(.*?)(?:\n\n##|\Z)', body, re.DOTALL)
+    # [FIX] 格式容错：fallback 到 ✅/核心/行动/建议 等变体
+    if not conclusion_match:
+        for fallback in [r'## 行动建议\n\n(.*?)(?:\n\n##|\Z)', r'## 关键结论\n\n(.*?)(?:\n\n##|\Z)',
+                         r'## 推荐策略\n\n(.*?)(?:\n\n##|\Z)', r'## Conclusion\n\n(.*?)(?:\n\n##|\Z)',
+                         r'### 核心结论\n\n(.*?)(?:\n\n###|\n\n##|\Z)', r'### 结论\n\n(.*?)(?:\n\n###|\n\n##|\Z)']:
+            conclusion_match = re.search(fallback, body, re.DOTALL)
+            if conclusion_match:
+                break
+    # [FIX] 终极 fallback：没有明确结论标题时，取最后 3 个段落
+    if not conclusion_match:
+        paragraphs = [p.strip() for p in body.split('\n\n') if p.strip() and not p.startswith('#')]
+        if len(paragraphs) >= 2:
+            fallback_text = '\n'.join(paragraphs[-3:])
+            conclusion_match = type('obj', (object,), {'group': lambda s, n=1: fallback_text})()
     if conclusion_match:
         concl_text = conclusion_match.group(1).strip()
         # 拆成多个要点

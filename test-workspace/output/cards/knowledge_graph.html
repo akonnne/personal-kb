@@ -3,351 +3,70 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>澳洲策略知识图谱</title>
+<title>澳洲知识图谱 — 知识卡片关联</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
-body {
-    font-family: system-ui, "Microsoft YaHei", "PingFang SC", sans-serif;
-    background: #f8f9fa;
-    overflow: hidden;
-    height: 100vh;
-}
-.header {
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    z-index: 10;
-    padding: 16px 24px;
-    background: linear-gradient(180deg, #f8f9fa 60%, transparent);
-    pointer-events: none;
-}
-.header h1 {
-    font-size: 20px;
-    font-weight: 700;
-    color: #1a1a2e;
-}
-.header p {
-    font-size: 13px;
-    color: #888;
-    margin-top: 3px;
-}
-.tooltip {
-    position: absolute;
-    z-index: 20;
-    background: rgba(30,30,40,0.92);
-    color: #fff;
-    padding: 10px 14px;
-    border-radius: 8px;
-    font-size: 13px;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity .15s;
-    max-width: 320px;
-    line-height: 1.6;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-}
-.tooltip.show { opacity: 1; }
-.legend {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    z-index: 10;
-    background: rgba(255,255,255,0.95);
-    backdrop-filter: blur(8px);
-    border: 1px solid #e8e8e8;
-    border-radius: 10px;
-    padding: 12px 16px;
-    font-size: 13px;
-    line-height: 2;
-    box-shadow: 0 2px 16px rgba(0,0,0,0.06);
-    max-width: 200px;
-}
-.legend-dot {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    margin-right: 7px;
-    vertical-align: middle;
-}
-.legend-title {
-    font-weight: 600;
-    margin-bottom: 4px;
-    font-size: 14px;
-    color: #333;
-}
-.stats {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    z-index: 10;
-    background: rgba(255,255,255,0.9);
-    backdrop-filter: blur(8px);
-    border: 1px solid #e8e8e8;
-    border-radius: 10px;
-    padding: 10px 16px;
-    font-size: 12px;
-    color: #666;
-    line-height: 1.6;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
-    text-align: right;
-}
-.link {
-    stroke: #bbb;
-    stroke-opacity: 0.5;
-    transition: stroke-opacity 0.2s, stroke 0.2s;
-}
-.link:hover {
-    stroke-opacity: 0.9;
-    stroke: #666;
-}
-.link-cross {
-    stroke-dasharray: 4, 4;
-    stroke: #999;
-    stroke-opacity: 0.4;
-}
-.node-label {
-    font-size: 10px;
-    fill: #444;
-    pointer-events: none;
-    text-anchor: middle;
-    font-weight: 500;
-    text-shadow: 0 1px 2px rgba(255,255,255,0.8), 0 1px 3px rgba(255,255,255,0.6);
-}
-.node-circle {
-    cursor: grab;
-    transition: r 0.2s;
-}
-.node-circle:hover {
-    stroke: #ffd700 !important;
-    stroke-width: 3 !important;
-}
+body { font-family:system-ui,sans-serif; background:#f8f9fa; overflow:hidden; height:100vh; }
+.header { position:absolute; top:0; left:0; right:0; z-index:10; padding:16px 24px; background:linear-gradient(180deg,#f8f9fa 60%,transparent); }
+.header h1 { font-size:18px; font-weight:600; color:#1a1a2e; }
+.header p { font-size:13px; color:#666; margin-top:2px; }
+.tooltip { position:absolute; z-index:20; background:rgba(0,0,0,0.85); color:#fff; padding:8px 12px; border-radius:8px; font-size:12px; pointer-events:none; opacity:0; transition:opacity .15s; max-width:300px; line-height:1.5; }
+.tooltip.show { opacity:1; }
+.legend { position:absolute; bottom:24px; left:24px; z-index:10; background:rgba(255,255,255,0.92); backdrop-filter:blur(8px); border:1px solid #e0e0e0; border-radius:10px; padding:12px 16px; font-size:12px; line-height:2; box-shadow:0 2px 12px rgba(0,0,0,0.06); }
+.legend-dot { display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:6px; vertical-align:middle; }
 </style>
 </head>
 <body>
-
-<div class="header">
-  <h1>🔗 澳洲策略知识图谱</h1>
-  <p>节点 = 知识卡片 | 连线 = 标签共现关联 | 悬停看详情 | 拖拽移动 | 滚轮缩放</p>
-</div>
-
+<div class="header"><h1>澳洲策略知识图谱</h1><p>节点=知识卡片 | 连线=主题关联 | 悬停看详情 | 拖拽移动</p></div>
 <div class="tooltip" id="tooltip"></div>
-
 <div class="legend">
-  <div class="legend-title">📂 主题分类</div>
-  <div><span class="legend-dot" style="background:#d35400"></span>职业评估 (6)</div>
-<div><span class="legend-dot" style="background:#8e44ad"></span>政策 (8)</div>
-<div><span class="legend-dot" style="background:#f39c12"></span>语言 (9)</div>
-  <div style="margin-top:8px;padding-top:6px;border-top:1px solid #eee;color:#999;font-size:11px;">
-    共 23 张卡片 · 73 条关联
-  </div>
-</div>
+<div><span class="legend-dot" style="background:#2471a3"></span>visa (23)</div>
+<div><span class="legend-dot" style="background:#2471a3"></span>migration (17)</div>
+<div><span class="legend-dot" style="background:#7f8c8d"></span>study (17)</div>
+<div><span class="legend-dot" style="background:#f39c12"></span>language (9)</div>
+<div><span class="legend-dot" style="background:#8e44ad"></span>policy (8)</div>
+<div><span class="legend-dot" style="background:#d35400"></span>assessment (6)</div>
+<div><span class="legend-dot" style="background:#c0392b"></span>major (6)</div>
+<div style="margin-top:6px;padding-top:6px;border-top:1px solid #eee">共 22 张知识卡片</div></div><svg id="graph" width="100%" height="100%"></svg><script>
+const data = {"nodes": [{"id": "card-ACSAustralia-00", "title": "ACS（Australian Computer Society）", "subtitle": "表格: 路径 vs 条件", "topic": "assessment", "group": "assessment"}, {"id": "card-EAEngineersA-00", "title": "EA（Engineers Australia）", "subtitle": "表格: 路径 vs 条件", "topic": "assessment", "group": "assessment"}, {"id": "card-VETASSESS-00", "title": "VETASSESS", "subtitle": "表格: 组别 vs 最低学历要求", "topic": "assessment", "group": "assessment"}, {"id": "card-ANMACNursing-00", "title": "ANMAC（Nursing and Midwifery）", "subtitle": "表格: 类型 vs 费用", "topic": "assessment", "group": "assessment"}, {"id": "card-Top5失败原因-00", "title": "Top 5 失败原因", "subtitle": "表格: 原因 vs 比例", "topic": "assessment", "group": "assessment"}, {"id": "card-核心结论-00", "title": "2026-07-11-strategy-assessment-guide — 核心结论", "subtitle": "", "topic": "assessment", "group": "assessment"}, {"id": "card-学生签证500-00", "title": "学生签证 500", "subtitle": "表格: 课程类型 vs 最低要求", "topic": "language", "group": "language"}, {"id": "card-技术移民EOI加分-00", "title": "技术移民 EOI 加分", "subtitle": "表格: 级别 vs 雅思", "topic": "language", "group": "language"}, {"id": "card-职业评估要求-00", "title": "职业评估要求", "subtitle": "表格: 评估机构 vs 英语要求", "topic": "language", "group": "language"}, {"id": "card-考试对比-00", "title": "考试对比", "subtitle": "表格: 维度 vs IELTS（雅思）", "topic": "language", "group": "language"}, {"id": "card-选择建议-00", "title": "选择建议", "subtitle": "表格: 你的情况 vs 推荐", "topic": "language", "group": "language"}, {"id": "card-2025年PTE分数调整-00", "title": "2025 年 PTE 分数调整的影响", "subtitle": "表格: 级别 vs 调整前 PTE", "topic": "language", "group": "language"}, {"id": "card-目标4个710分-00", "title": "目标：4 个 7（+10 分）", "subtitle": "表格: 科目 vs 雅思", "topic": "language", "group": "language"}, {"id": "card-目标4个820分-00", "title": "目标：4 个 8（+20 分）", "subtitle": "表格: 加分方式 vs 分数", "topic": "language", "group": "language"}, {"id": "card-核心结论-00", "title": "2026-07-11-strategy-language-guide — 核心结论", "subtitle": "", "topic": "language", "group": "language"}, {"id": "card-变化1签证费全面上涨约3-00", "title": "变化 1：签证费全面上涨约 3%", "subtitle": "表格: 签证 vs 旧费用", "topic": "policy", "group": "policy"}, {"id": "card-变化2雇主担保薪资门槛上-00", "title": "变化 2：雇主担保薪资门槛上调", "subtitle": "表格: 门槛类型 vs 旧标准", "topic": "policy", "group": "policy"}, {"id": "card-变化3永居配额185万内-00", "title": "变化 3：永居配额 18.5 万，内部结构大洗牌", "subtitle": "表格: 签证类别 vs 25-26", "topic": "policy", "group": "policy"}, {"id": "card-变化4SkillsinD-00", "title": "变化 4：Skills in Demand（SID）签证全面取代旧 482", "subtitle": "表格: 通道 vs 年薪门槛", "topic": "policy", "group": "policy"}, {"id": "card-从管控到竞争的范式转换-00", "title": "从\"管控\"到\"竞争\"的范式转换", "subtitle": "表格: 旧逻辑（管控） vs 新逻辑（竞争）", "topic": "policy", "group": "policy"}, {"id": "card-留学生-00", "title": "留学生", "subtitle": "表格: 时间 vs 事件", "topic": "policy", "group": "policy"}, {"id": "card-核心结论-00", "title": "2026-07-11-strategy-policy-2026-changes — 核心结论", "subtitle": "", "topic": "policy", "group": "policy"}], "links": [{"source": "card-ACSAustralia-00", "target": "card-EAEngineersA-00", "weight": 19}, {"source": "card-ACSAustralia-00", "target": "card-VETASSESS-00", "weight": 19}, {"source": "card-ACSAustralia-00", "target": "card-ANMACNursing-00", "weight": 19}, {"source": "card-ACSAustralia-00", "target": "card-Top5失败原因-00", "weight": 19}, {"source": "card-ACSAustralia-00", "target": "card-核心结论-00", "weight": 19}, {"source": "card-EAEngineersA-00", "target": "card-VETASSESS-00", "weight": 19}, {"source": "card-EAEngineersA-00", "target": "card-ANMACNursing-00", "weight": 19}, {"source": "card-EAEngineersA-00", "target": "card-Top5失败原因-00", "weight": 19}, {"source": "card-EAEngineersA-00", "target": "card-核心结论-00", "weight": 19}, {"source": "card-VETASSESS-00", "target": "card-ANMACNursing-00", "weight": 19}, {"source": "card-VETASSESS-00", "target": "card-Top5失败原因-00", "weight": 19}, {"source": "card-VETASSESS-00", "target": "card-核心结论-00", "weight": 19}, {"source": "card-ANMACNursing-00", "target": "card-Top5失败原因-00", "weight": 19}, {"source": "card-ANMACNursing-00", "target": "card-核心结论-00", "weight": 19}, {"source": "card-Top5失败原因-00", "target": "card-核心结论-00", "weight": 19}, {"source": "card-学生签证500-00", "target": "card-技术移民EOI加分-00", "weight": 23}, {"source": "card-学生签证500-00", "target": "card-职业评估要求-00", "weight": 23}, {"source": "card-学生签证500-00", "target": "card-考试对比-00", "weight": 23}, {"source": "card-学生签证500-00", "target": "card-选择建议-00", "weight": 23}, {"source": "card-学生签证500-00", "target": "card-2025年PTE分数调整-00", "weight": 23}, {"source": "card-学生签证500-00", "target": "card-目标4个710分-00", "weight": 23}, {"source": "card-学生签证500-00", "target": "card-目标4个820分-00", "weight": 23}, {"source": "card-学生签证500-00", "target": "card-核心结论-00", "weight": 23}, {"source": "card-学生签证500-00", "target": "card-变化1签证费全面上涨约3-00", "weight": 9}, {"source": "card-学生签证500-00", "target": "card-变化2雇主担保薪资门槛上-00", "weight": 9}, {"source": "card-学生签证500-00", "target": "card-变化3永居配额185万内-00", "weight": 9}, {"source": "card-学生签证500-00", "target": "card-变化4SkillsinD-00", "weight": 9}, {"source": "card-学生签证500-00", "target": "card-从管控到竞争的范式转换-00", "weight": 9}, {"source": "card-学生签证500-00", "target": "card-留学生-00", "weight": 9}, {"source": "card-学生签证500-00", "target": "card-留学生-01", "weight": 9}, {"source": "card-学生签证500-00", "target": "card-核心结论-00", "weight": 9}, {"source": "card-技术移民EOI加分-00", "target": "card-职业评估要求-00", "weight": 23}, {"source": "card-技术移民EOI加分-00", "target": "card-考试对比-00", "weight": 23}, {"source": "card-技术移民EOI加分-00", "target": "card-选择建议-00", "weight": 23}, {"source": "card-技术移民EOI加分-00", "target": "card-2025年PTE分数调整-00", "weight": 23}, {"source": "card-技术移民EOI加分-00", "target": "card-目标4个710分-00", "weight": 23}, {"source": "card-技术移民EOI加分-00", "target": "card-目标4个820分-00", "weight": 23}, {"source": "card-技术移民EOI加分-00", "target": "card-核心结论-00", "weight": 23}, {"source": "card-技术移民EOI加分-00", "target": "card-变化1签证费全面上涨约3-00", "weight": 9}, {"source": "card-技术移民EOI加分-00", "target": "card-变化2雇主担保薪资门槛上-00", "weight": 9}, {"source": "card-技术移民EOI加分-00", "target": "card-变化3永居配额185万内-00", "weight": 9}, {"source": "card-技术移民EOI加分-00", "target": "card-变化4SkillsinD-00", "weight": 9}, {"source": "card-技术移民EOI加分-00", "target": "card-从管控到竞争的范式转换-00", "weight": 9}, {"source": "card-技术移民EOI加分-00", "target": "card-留学生-00", "weight": 9}, {"source": "card-技术移民EOI加分-00", "target": "card-留学生-01", "weight": 9}, {"source": "card-技术移民EOI加分-00", "target": "card-核心结论-00", "weight": 9}, {"source": "card-职业评估要求-00", "target": "card-考试对比-00", "weight": 23}, {"source": "card-职业评估要求-00", "target": "card-选择建议-00", "weight": 23}, {"source": "card-职业评估要求-00", "target": "card-2025年PTE分数调整-00", "weight": 23}, {"source": "card-职业评估要求-00", "target": "card-目标4个710分-00", "weight": 23}, {"source": "card-职业评估要求-00", "target": "card-目标4个820分-00", "weight": 23}, {"source": "card-职业评估要求-00", "target": "card-核心结论-00", "weight": 23}, {"source": "card-职业评估要求-00", "target": "card-变化1签证费全面上涨约3-00", "weight": 9}, {"source": "card-职业评估要求-00", "target": "card-变化2雇主担保薪资门槛上-00", "weight": 9}, {"source": "card-职业评估要求-00", "target": "card-变化3永居配额185万内-00", "weight": 9}, {"source": "card-职业评估要求-00", "target": "card-变化4SkillsinD-00", "weight": 9}, {"source": "card-职业评估要求-00", "target": "card-从管控到竞争的范式转换-00", "weight": 9}, {"source": "card-职业评估要求-00", "target": "card-留学生-00", "weight": 9}, {"source": "card-职业评估要求-00", "target": "card-留学生-01", "weight": 9}, {"source": "card-职业评估要求-00", "target": "card-核心结论-00", "weight": 9}, {"source": "card-考试对比-00", "target": "card-选择建议-00", "weight": 23}, {"source": "card-考试对比-00", "target": "card-2025年PTE分数调整-00", "weight": 23}, {"source": "card-考试对比-00", "target": "card-目标4个710分-00", "weight": 23}, {"source": "card-考试对比-00", "target": "card-目标4个820分-00", "weight": 23}, {"source": "card-考试对比-00", "target": "card-核心结论-00", "weight": 23}, {"source": "card-考试对比-00", "target": "card-变化1签证费全面上涨约3-00", "weight": 9}, {"source": "card-考试对比-00", "target": "card-变化2雇主担保薪资门槛上-00", "weight": 9}, {"source": "card-考试对比-00", "target": "card-变化3永居配额185万内-00", "weight": 9}, {"source": "card-考试对比-00", "target": "card-变化4SkillsinD-00", "weight": 9}, {"source": "card-考试对比-00", "target": "card-从管控到竞争的范式转换-00", "weight": 9}, {"source": "card-考试对比-00", "target": "card-留学生-00", "weight": 9}, {"source": "card-考试对比-00", "target": "card-留学生-01", "weight": 9}, {"source": "card-考试对比-00", "target": "card-核心结论-00", "weight": 9}, {"source": "card-选择建议-00", "target": "card-2025年PTE分数调整-00", "weight": 23}, {"source": "card-选择建议-00", "target": "card-目标4个710分-00", "weight": 23}, {"source": "card-选择建议-00", "target": "card-目标4个820分-00", "weight": 23}, {"source": "card-选择建议-00", "target": "card-核心结论-00", "weight": 23}, {"source": "card-选择建议-00", "target": "card-变化1签证费全面上涨约3-00", "weight": 9}, {"source": "card-选择建议-00", "target": "card-变化2雇主担保薪资门槛上-00", "weight": 9}, {"source": "card-选择建议-00", "target": "card-变化3永居配额185万内-00", "weight": 9}, {"source": "card-选择建议-00", "target": "card-变化4SkillsinD-00", "weight": 9}, {"source": "card-选择建议-00", "target": "card-从管控到竞争的范式转换-00", "weight": 9}, {"source": "card-选择建议-00", "target": "card-留学生-00", "weight": 9}, {"source": "card-选择建议-00", "target": "card-留学生-01", "weight": 9}, {"source": "card-选择建议-00", "target": "card-核心结论-00", "weight": 9}, {"source": "card-2025年PTE分数调整-00", "target": "card-目标4个710分-00", "weight": 23}, {"source": "card-2025年PTE分数调整-00", "target": "card-目标4个820分-00", "weight": 23}, {"source": "card-2025年PTE分数调整-00", "target": "card-核心结论-00", "weight": 23}, {"source": "card-2025年PTE分数调整-00", "target": "card-变化1签证费全面上涨约3-00", "weight": 9}, {"source": "card-2025年PTE分数调整-00", "target": "card-变化2雇主担保薪资门槛上-00", "weight": 9}, {"source": "card-2025年PTE分数调整-00", "target": "card-变化3永居配额185万内-00", "weight": 9}, {"source": "card-2025年PTE分数调整-00", "target": "card-变化4SkillsinD-00", "weight": 9}, {"source": "card-2025年PTE分数调整-00", "target": "card-从管控到竞争的范式转换-00", "weight": 9}, {"source": "card-2025年PTE分数调整-00", "target": "card-留学生-00", "weight": 9}, {"source": "card-2025年PTE分数调整-00", "target": "card-留学生-01", "weight": 9}, {"source": "card-2025年PTE分数调整-00", "target": "card-核心结论-00", "weight": 9}, {"source": "card-目标4个710分-00", "target": "card-目标4个820分-00", "weight": 23}, {"source": "card-目标4个710分-00", "target": "card-核心结论-00", "weight": 23}, {"source": "card-目标4个710分-00", "target": "card-变化1签证费全面上涨约3-00", "weight": 9}, {"source": "card-目标4个710分-00", "target": "card-变化2雇主担保薪资门槛上-00", "weight": 9}, {"source": "card-目标4个710分-00", "target": "card-变化3永居配额185万内-00", "weight": 9}, {"source": "card-目标4个710分-00", "target": "card-变化4SkillsinD-00", "weight": 9}, {"source": "card-目标4个710分-00", "target": "card-从管控到竞争的范式转换-00", "weight": 9}, {"source": "card-目标4个710分-00", "target": "card-留学生-00", "weight": 9}, {"source": "card-目标4个710分-00", "target": "card-留学生-01", "weight": 9}, {"source": "card-目标4个710分-00", "target": "card-核心结论-00", "weight": 9}, {"source": "card-目标4个820分-00", "target": "card-核心结论-00", "weight": 23}, {"source": "card-目标4个820分-00", "target": "card-变化1签证费全面上涨约3-00", "weight": 9}, {"source": "card-目标4个820分-00", "target": "card-变化2雇主担保薪资门槛上-00", "weight": 9}, {"source": "card-目标4个820分-00", "target": "card-变化3永居配额185万内-00", "weight": 9}, {"source": "card-目标4个820分-00", "target": "card-变化4SkillsinD-00", "weight": 9}, {"source": "card-目标4个820分-00", "target": "card-从管控到竞争的范式转换-00", "weight": 9}, {"source": "card-目标4个820分-00", "target": "card-留学生-00", "weight": 9}, {"source": "card-目标4个820分-00", "target": "card-留学生-01", "weight": 9}, {"source": "card-目标4个820分-00", "target": "card-核心结论-00", "weight": 9}, {"source": "card-核心结论-00", "target": "card-变化1签证费全面上涨约3-00", "weight": 9}, {"source": "card-核心结论-00", "target": "card-变化2雇主担保薪资门槛上-00", "weight": 9}, {"source": "card-核心结论-00", "target": "card-变化3永居配额185万内-00", "weight": 9}, {"source": "card-核心结论-00", "target": "card-变化4SkillsinD-00", "weight": 9}, {"source": "card-核心结论-00", "target": "card-从管控到竞争的范式转换-00", "weight": 9}, {"source": "card-核心结论-00", "target": "card-留学生-00", "weight": 9}, {"source": "card-核心结论-00", "target": "card-留学生-01", "weight": 9}, {"source": "card-核心结论-00", "target": "card-核心结论-00", "weight": 9}, {"source": "card-变化1签证费全面上涨约3-00", "target": "card-变化2雇主担保薪资门槛上-00", "weight": 22}, {"source": "card-变化1签证费全面上涨约3-00", "target": "card-变化3永居配额185万内-00", "weight": 22}, {"source": "card-变化1签证费全面上涨约3-00", "target": "card-变化4SkillsinD-00", "weight": 22}, {"source": "card-变化1签证费全面上涨约3-00", "target": "card-从管控到竞争的范式转换-00", "weight": 22}, {"source": "card-变化1签证费全面上涨约3-00", "target": "card-留学生-00", "weight": 22}, {"source": "card-变化1签证费全面上涨约3-00", "target": "card-留学生-01", "weight": 22}, {"source": "card-变化1签证费全面上涨约3-00", "target": "card-核心结论-00", "weight": 22}, {"source": "card-变化2雇主担保薪资门槛上-00", "target": "card-变化3永居配额185万内-00", "weight": 22}, {"source": "card-变化2雇主担保薪资门槛上-00", "target": "card-变化4SkillsinD-00", "weight": 22}, {"source": "card-变化2雇主担保薪资门槛上-00", "target": "card-从管控到竞争的范式转换-00", "weight": 22}, {"source": "card-变化2雇主担保薪资门槛上-00", "target": "card-留学生-00", "weight": 22}, {"source": "card-变化2雇主担保薪资门槛上-00", "target": "card-留学生-01", "weight": 22}, {"source": "card-变化2雇主担保薪资门槛上-00", "target": "card-核心结论-00", "weight": 22}, {"source": "card-变化3永居配额185万内-00", "target": "card-变化4SkillsinD-00", "weight": 22}, {"source": "card-变化3永居配额185万内-00", "target": "card-从管控到竞争的范式转换-00", "weight": 22}, {"source": "card-变化3永居配额185万内-00", "target": "card-留学生-00", "weight": 22}, {"source": "card-变化3永居配额185万内-00", "target": "card-留学生-01", "weight": 22}, {"source": "card-变化3永居配额185万内-00", "target": "card-核心结论-00", "weight": 22}, {"source": "card-变化4SkillsinD-00", "target": "card-从管控到竞争的范式转换-00", "weight": 22}, {"source": "card-变化4SkillsinD-00", "target": "card-留学生-00", "weight": 22}, {"source": "card-变化4SkillsinD-00", "target": "card-留学生-01", "weight": 22}, {"source": "card-变化4SkillsinD-00", "target": "card-核心结论-00", "weight": 22}, {"source": "card-从管控到竞争的范式转换-00", "target": "card-留学生-00", "weight": 22}, {"source": "card-从管控到竞争的范式转换-00", "target": "card-留学生-01", "weight": 22}, {"source": "card-从管控到竞争的范式转换-00", "target": "card-核心结论-00", "weight": 22}, {"source": "card-留学生-00", "target": "card-留学生-01", "weight": 22}, {"source": "card-留学生-00", "target": "card-核心结论-00", "weight": 22}, {"source": "card-留学生-01", "target": "card-核心结论-00", "weight": 22}]};
 
-<div class="stats" id="stats"></div>
+const width = window.innerWidth, height = window.innerHeight;
+const svg = d3.select("#graph");
+const g = svg.append("g");
+svg.call(d3.zoom().scaleExtent([0.3,3]).on("zoom",e=>g.attr("transform",e.transform)));
 
-<svg id="graph" width="100%" height="100%"></svg>
+const color = d3.scaleOrdinal()
+  .domain(["visa","migration","job","living","major","assessment","study","policy","finance","university","regional","language"])
+  .range(["#2471a3","#2471a3","#c0392b","#1e8449","#c0392b","#d35400","#7f8c8d","#8e44ad","#9b59b6","#2980b9","#1e8449","#f39c12"]);
 
-<script>
-// 数据
-var nodes = [{"id": "card-ACSAustralia-00", "title": "ACS（Australian Computer Society）", "shortTitle": "ACS（Austr…", "subtitle": "表格: 路径 vs 条件", "topic": "assessment", "topic_zh": "职业评估", "group": "assessment", "degree": 7, "isCenter": true}, {"id": "card-EAEngineersA-00", "title": "EA（Engineers Australia）", "shortTitle": "EA（Engine…", "subtitle": "表格: 路径 vs 条件", "topic": "assessment", "topic_zh": "职业评估", "group": "assessment", "degree": 5, "isCenter": false}, {"id": "card-VETASSESS-00", "title": "VETASSESS", "shortTitle": "VETASSESS", "subtitle": "表格: 组别 vs 最低学历要求", "topic": "assessment", "topic_zh": "职业评估", "group": "assessment", "degree": 5, "isCenter": false}, {"id": "card-ANMACNursing-00", "title": "ANMAC（Nursing and Midwifery）", "shortTitle": "ANMAC（Nur…", "subtitle": "表格: 类型 vs 费用", "topic": "assessment", "topic_zh": "职业评估", "group": "assessment", "degree": 5, "isCenter": false}, {"id": "card-Top5失败原因-00", "title": "Top 5 失败原因", "shortTitle": "Top 5 失败原…", "subtitle": "表格: 原因 vs 比例", "topic": "assessment", "topic_zh": "职业评估", "group": "assessment", "degree": 5, "isCenter": false}, {"id": "card-核心结论-00", "title": "2026-07-11-strategy-assessment-guide — 核心结论", "shortTitle": "2026-07-1…", "subtitle": "", "topic": "assessment", "topic_zh": "职业评估", "group": "assessment", "degree": 5, "isCenter": false}, {"id": "card-学生签证500-00", "title": "学生签证 500", "shortTitle": "学生签证 500", "subtitle": "表格: 课程类型 vs 最低要求", "topic": "language", "topic_zh": "语言", "group": "language", "degree": 10, "isCenter": true}, {"id": "card-技术移民EOI加分-00", "title": "技术移民 EOI 加分", "shortTitle": "技术移民 EOI …", "subtitle": "表格: 级别 vs 雅思", "topic": "language", "topic_zh": "语言", "group": "language", "degree": 8, "isCenter": false}, {"id": "card-职业评估要求-00", "title": "职业评估要求", "shortTitle": "职业评估要求", "subtitle": "表格: 评估机构 vs 英语要求", "topic": "language", "topic_zh": "语言", "group": "language", "degree": 8, "isCenter": false}, {"id": "card-考试对比-00", "title": "考试对比", "shortTitle": "考试对比", "subtitle": "表格: 维度 vs IELTS（雅思）", "topic": "language", "topic_zh": "语言", "group": "language", "degree": 8, "isCenter": false}, {"id": "card-选择建议-00", "title": "选择建议", "shortTitle": "选择建议", "subtitle": "表格: 你的情况 vs 推荐", "topic": "language", "topic_zh": "语言", "group": "language", "degree": 8, "isCenter": false}, {"id": "card-2025年PTE分数调整-00", "title": "2025 年 PTE 分数调整的影响", "shortTitle": "2025 年 PT…", "subtitle": "表格: 级别 vs 调整前 PTE", "topic": "language", "topic_zh": "语言", "group": "language", "degree": 5, "isCenter": false}, {"id": "card-目标4个710分-00", "title": "目标：4 个 7（+10 分）", "shortTitle": "目标：4 个 7（…", "subtitle": "表格: 科目 vs 雅思", "topic": "language", "topic_zh": "语言", "group": "language", "degree": 5, "isCenter": false}, {"id": "card-目标4个820分-00", "title": "目标：4 个 8（+20 分）", "shortTitle": "目标：4 个 8（…", "subtitle": "表格: 加分方式 vs 分数", "topic": "language", "topic_zh": "语言", "group": "language", "degree": 5, "isCenter": false}, {"id": "card-核心结论-00-1", "title": "2026-07-11-strategy-language-guide — 核心结论", "shortTitle": "2026-07-1…", "subtitle": "", "topic": "language", "topic_zh": "语言", "group": "language", "degree": 5, "isCenter": false}, {"id": "card-变化1签证费全面上涨约3-00", "title": "变化 1：签证费全面上涨约 3%", "shortTitle": "变化 1：签证费全…", "subtitle": "表格: 签证 vs 旧费用", "topic": "policy", "topic_zh": "政策", "group": "policy", "degree": 9, "isCenter": true}, {"id": "card-变化2雇主担保薪资门槛上-00", "title": "变化 2：雇主担保薪资门槛上调", "shortTitle": "变化 2：雇主担保…", "subtitle": "表格: 门槛类型 vs 旧标准", "topic": "policy", "topic_zh": "政策", "group": "policy", "degree": 7, "isCenter": false}, {"id": "card-变化3永居配额185万内-00", "title": "变化 3：永居配额 18.5 万，内部结构大洗牌", "shortTitle": "变化 3：永居配额…", "subtitle": "表格: 签证类别 vs 25-26", "topic": "policy", "topic_zh": "政策", "group": "policy", "degree": 7, "isCenter": false}, {"id": "card-变化4SkillsinD-00", "title": "变化 4：Skills in Demand（SID）签证全面取代旧 482", "shortTitle": "变化 4：Skil…", "subtitle": "表格: 通道 vs 年薪门槛", "topic": "policy", "topic_zh": "政策", "group": "policy", "degree": 7, "isCenter": false}, {"id": "card-从管控到竞争的范式转换-00", "title": "从\"管控\"到\"竞争\"的范式转换", "shortTitle": "从\"管控\"到\"竞争…", "subtitle": "表格: 旧逻辑（管控） vs 新逻辑（竞争）", "topic": "policy", "topic_zh": "政策", "group": "policy", "degree": 7, "isCenter": false}, {"id": "card-留学生-00", "title": "留学生", "shortTitle": "留学生", "subtitle": "表格: 时间 vs 事件", "topic": "policy", "topic_zh": "政策", "group": "policy", "degree": 5, "isCenter": false}, {"id": "card-留学生-01", "title": "留学生", "shortTitle": "留学生", "subtitle": "表格: 你的身份 vs 一句话", "topic": "policy", "topic_zh": "政策", "group": "policy", "degree": 5, "isCenter": false}, {"id": "card-核心结论-00-2", "title": "2026-07-11-strategy-policy-2026-changes — 核心结论", "shortTitle": "2026-07-1…", "subtitle": "", "topic": "policy", "topic_zh": "政策", "group": "policy", "degree": 5, "isCenter": false}];
-var links = [{"source": "card-ACSAustralia-00", "target": "card-EAEngineersA-00", "weight": 13}, {"source": "card-ACSAustralia-00", "target": "card-VETASSESS-00", "weight": 13}, {"source": "card-ACSAustralia-00", "target": "card-ANMACNursing-00", "weight": 13}, {"source": "card-ACSAustralia-00", "target": "card-Top5失败原因-00", "weight": 13}, {"source": "card-ACSAustralia-00", "target": "card-核心结论-00", "weight": 13}, {"source": "card-EAEngineersA-00", "target": "card-VETASSESS-00", "weight": 13}, {"source": "card-EAEngineersA-00", "target": "card-ANMACNursing-00", "weight": 13}, {"source": "card-EAEngineersA-00", "target": "card-Top5失败原因-00", "weight": 13}, {"source": "card-EAEngineersA-00", "target": "card-核心结论-00", "weight": 13}, {"source": "card-VETASSESS-00", "target": "card-ANMACNursing-00", "weight": 13}, {"source": "card-VETASSESS-00", "target": "card-Top5失败原因-00", "weight": 13}, {"source": "card-VETASSESS-00", "target": "card-核心结论-00", "weight": 13}, {"source": "card-ANMACNursing-00", "target": "card-Top5失败原因-00", "weight": 13}, {"source": "card-ANMACNursing-00", "target": "card-核心结论-00", "weight": 13}, {"source": "card-Top5失败原因-00", "target": "card-核心结论-00", "weight": 13}, {"source": "card-学生签证500-00", "target": "card-技术移民EOI加分-00", "weight": 15}, {"source": "card-学生签证500-00", "target": "card-职业评估要求-00", "weight": 15}, {"source": "card-学生签证500-00", "target": "card-考试对比-00", "weight": 15}, {"source": "card-学生签证500-00", "target": "card-选择建议-00", "weight": 15}, {"source": "card-学生签证500-00", "target": "card-2025年PTE分数调整-00", "weight": 15}, {"source": "card-技术移民EOI加分-00", "target": "card-职业评估要求-00", "weight": 15}, {"source": "card-技术移民EOI加分-00", "target": "card-考试对比-00", "weight": 15}, {"source": "card-技术移民EOI加分-00", "target": "card-选择建议-00", "weight": 15}, {"source": "card-技术移民EOI加分-00", "target": "card-2025年PTE分数调整-00", "weight": 15}, {"source": "card-职业评估要求-00", "target": "card-考试对比-00", "weight": 15}, {"source": "card-职业评估要求-00", "target": "card-选择建议-00", "weight": 15}, {"source": "card-职业评估要求-00", "target": "card-2025年PTE分数调整-00", "weight": 15}, {"source": "card-考试对比-00", "target": "card-选择建议-00", "weight": 15}, {"source": "card-考试对比-00", "target": "card-2025年PTE分数调整-00", "weight": 15}, {"source": "card-选择建议-00", "target": "card-2025年PTE分数调整-00", "weight": 15}, {"source": "card-目标4个710分-00", "target": "card-学生签证500-00", "weight": 15}, {"source": "card-目标4个710分-00", "target": "card-技术移民EOI加分-00", "weight": 15}, {"source": "card-目标4个710分-00", "target": "card-职业评估要求-00", "weight": 15}, {"source": "card-目标4个710分-00", "target": "card-考试对比-00", "weight": 15}, {"source": "card-目标4个710分-00", "target": "card-选择建议-00", "weight": 15}, {"source": "card-目标4个820分-00", "target": "card-学生签证500-00", "weight": 15}, {"source": "card-目标4个820分-00", "target": "card-技术移民EOI加分-00", "weight": 15}, {"source": "card-目标4个820分-00", "target": "card-职业评估要求-00", "weight": 15}, {"source": "card-目标4个820分-00", "target": "card-考试对比-00", "weight": 15}, {"source": "card-目标4个820分-00", "target": "card-选择建议-00", "weight": 15}, {"source": "card-核心结论-00-1", "target": "card-学生签证500-00", "weight": 15}, {"source": "card-核心结论-00-1", "target": "card-技术移民EOI加分-00", "weight": 15}, {"source": "card-核心结论-00-1", "target": "card-职业评估要求-00", "weight": 15}, {"source": "card-核心结论-00-1", "target": "card-考试对比-00", "weight": 15}, {"source": "card-核心结论-00-1", "target": "card-选择建议-00", "weight": 15}, {"source": "card-变化1签证费全面上涨约3-00", "target": "card-变化2雇主担保薪资门槛上-00", "weight": 14}, {"source": "card-变化1签证费全面上涨约3-00", "target": "card-变化3永居配额185万内-00", "weight": 14}, {"source": "card-变化1签证费全面上涨约3-00", "target": "card-变化4SkillsinD-00", "weight": 14}, {"source": "card-变化1签证费全面上涨约3-00", "target": "card-从管控到竞争的范式转换-00", "weight": 14}, {"source": "card-变化1签证费全面上涨约3-00", "target": "card-留学生-00", "weight": 14}, {"source": "card-变化2雇主担保薪资门槛上-00", "target": "card-变化3永居配额185万内-00", "weight": 14}, {"source": "card-变化2雇主担保薪资门槛上-00", "target": "card-变化4SkillsinD-00", "weight": 14}, {"source": "card-变化2雇主担保薪资门槛上-00", "target": "card-从管控到竞争的范式转换-00", "weight": 14}, {"source": "card-变化2雇主担保薪资门槛上-00", "target": "card-留学生-00", "weight": 14}, {"source": "card-变化3永居配额185万内-00", "target": "card-变化4SkillsinD-00", "weight": 14}, {"source": "card-变化3永居配额185万内-00", "target": "card-从管控到竞争的范式转换-00", "weight": 14}, {"source": "card-变化3永居配额185万内-00", "target": "card-留学生-00", "weight": 14}, {"source": "card-变化4SkillsinD-00", "target": "card-从管控到竞争的范式转换-00", "weight": 14}, {"source": "card-变化4SkillsinD-00", "target": "card-留学生-00", "weight": 14}, {"source": "card-从管控到竞争的范式转换-00", "target": "card-留学生-00", "weight": 14}, {"source": "card-留学生-01", "target": "card-变化1签证费全面上涨约3-00", "weight": 14}, {"source": "card-留学生-01", "target": "card-变化2雇主担保薪资门槛上-00", "weight": 14}, {"source": "card-留学生-01", "target": "card-变化3永居配额185万内-00", "weight": 14}, {"source": "card-留学生-01", "target": "card-变化4SkillsinD-00", "weight": 14}, {"source": "card-留学生-01", "target": "card-从管控到竞争的范式转换-00", "weight": 14}, {"source": "card-核心结论-00-2", "target": "card-变化1签证费全面上涨约3-00", "weight": 14}, {"source": "card-核心结论-00-2", "target": "card-变化2雇主担保薪资门槛上-00", "weight": 14}, {"source": "card-核心结论-00-2", "target": "card-变化3永居配额185万内-00", "weight": 14}, {"source": "card-核心结论-00-2", "target": "card-变化4SkillsinD-00", "weight": 14}, {"source": "card-核心结论-00-2", "target": "card-从管控到竞争的范式转换-00", "weight": 14}, {"source": "card-ACSAustralia-00", "target": "card-学生签证500-00", "weight": 1}, {"source": "card-ACSAustralia-00", "target": "card-变化1签证费全面上涨约3-00", "weight": 1}, {"source": "card-学生签证500-00", "target": "card-变化1签证费全面上涨约3-00", "weight": 1}];
+const sim = d3.forceSimulation(data.nodes)
+  .force("link", d3.forceLink(data.links).id(d=>d.id).distance(120).strength(l=>l.weight/20))
+  .force("charge", d3.forceManyBody().strength(-200))
+  .force("center", d3.forceCenter(width/2, height/2))
+  .force("collision", d3.forceCollide(25));
 
-var width = window.innerWidth;
-var height = window.innerHeight;
-var svg = d3.select("#graph");
-var g = svg.append("g");
+const link = g.append("g").selectAll("line").data(data.links).join("line")
+  .attr("stroke","#999").attr("stroke-width",l=>Math.max(0.5,l.weight*0.3)).attr("stroke-opacity",0.3);
 
-// Zoom
-var zoom = d3.zoom()
-    .scaleExtent([0.1, 4])
-    .on("zoom", function(e) {
-        g.attr("transform", e.transform);
-    });
-svg.call(zoom);
+const node = g.append("g").selectAll("g").data(data.nodes).join("g")
+  .call(d3.drag().on("start",(e,d)=>{if(!e.active)sim.alphaTarget(0.3).restart();d.fx=d.x;d.fy=d.y;})
+    .on("drag",(e,d)=>{d.fx=e.x;d.fy=e.y;})
+    .on("end",(e,d)=>{if(!e.active)sim.alphaTarget(0);d.fx=null;d.fy=null;}));
 
-// Colors
-var color = d3.scaleOrdinal()
-    .domain(["visa", "migration", "job", "living", "major", "assessment", "study", "policy", "finance", "university", "regional", "language"])
-    .range(["#2471a3", "#2980b9", "#c0392b", "#1e8449", "#e67e22", "#d35400", "#7f8c8d", "#8e44ad", "#9b59b6", "#16a085", "#27ae60", "#f39c12"]);
+node.append("circle").attr("r",12).attr("fill",d=>color(d.group)).attr("stroke","#fff").attr("stroke-width",2).style("cursor","grab");
+node.append("text").text(d=>d.title.substring(0,12)).attr("text-anchor","middle").attr("dy",24)
+  .attr("font-size","11px").attr("fill","#333").style("pointer-events","none");
 
-// Stats
-var stats = d3.select("#stats");
-stats.html(
-    '<div style="font-weight:600;color:#333">图谱概览</div>' +
-    '节点: <b>' + nodes.length + '</b> | ' +
-    '关联: <b>' + links.length + '</b>'
-);
+const tooltip = d3.select("#tooltip");
+node.on("mouseenter",function(e,d){
+  d3.select(this).select("circle").attr("stroke","#ffd700").attr("stroke-width",3);
+  tooltip.html(`<b>${d.title}</b><br><span style="opacity:0.7">${d.subtitle || d.group}</span>`).classed("show",true);
+}).on("mousemove",e=>tooltip.style("left",(e.pageX+14)+"px").style("top",(e.pageY-10)+"px"))
+  .on("mouseleave",function(){d3.select(this).select("circle").attr("stroke","#fff").attr("stroke-width",2);tooltip.classed("show",false);});
 
-// 节点半径
-var maxDegree = d3.max(nodes, function(d) { return d.degree; });
-var rScale = d3.scaleSqrt()
-    .domain([0, maxDegree || 1])
-    .range([6, 14]);
-
-// 聚类中心位置
-var clusterRadius = Math.min(width, height) * 0.32;
-var clusterCenters = {"assessment": {"x": 6.123233995736766e-17, "y": -1.0}, "language": {"x": 0.8660254037844387, "y": 0.49999999999999983}, "policy": {"x": -0.8660254037844385, "y": 0.5000000000000003}};
-
-// 为每个节点设置初始位置（围绕主题中心随机分布）
-nodes.forEach(function(d) {
-    var c = clusterCenters[d.topic];
-    if (c) {
-        var angle = Math.random() * 2 * Math.PI;
-        var dist = Math.random() * 30 + 10;
-        d.x = width / 2 + c.x * clusterRadius + Math.cos(angle) * dist;
-        d.y = height / 2 + c.y * clusterRadius + Math.sin(angle) * dist;
-        d.vx = 0;
-        d.vy = 0;
-    }
+sim.on("tick",()=>{
+  link.attr("x1",d=>d.source.x).attr("y1",d=>d.source.y).attr("x2",d=>d.target.x).attr("y2",d=>d.target.y);
+  node.attr("transform",d=>`translate(${d.x},${d.y})`);
 });
-
-// 判断是否为跨主题连接
-function isCrossTopic(l) {
-    var s = nodes.find(function(n) { return n.id === ((typeof l.source === 'object') ? l.source.id : l.source); });
-    var t = nodes.find(function(n) { return n.id === ((typeof l.target === 'object') ? l.target.id : l.target); });
-    if (!s || !t) return false;
-    return s.topic !== t.topic;
-}
-
-// Force simulation - 强聚类引力
-var sim = d3.forceSimulation(nodes)
-    .force("link", d3.forceLink(links)
-        .id(function(d) { return d.id; })
-        .distance(function(l) {
-            return isCrossTopic(l) ? 200 : 70;
-        })
-        .strength(function(l) {
-            return isCrossTopic(l) ? 0.01 : 0.12;
-        }))
-    .force("charge", d3.forceManyBody()
-        .strength(function(d) {
-            return -30 - d.degree * 2;
-        })
-        .distanceMax(200))
-    .force("center", d3.forceCenter(width / 2, height / 2))
-    .force("collide", d3.forceCollide()
-        .radius(function(d) { return rScale(d.degree) + 5; })
-        .strength(0.4))
-    .force("clusterX", d3.forceX(function(d) {
-        var c = clusterCenters[d.topic];
-        return c ? (width / 2 + c.x * clusterRadius) : width / 2;
-    }).strength(0.15))
-    .force("clusterY", d3.forceY(function(d) {
-        var c = clusterCenters[d.topic];
-        return c ? (height / 2 + c.y * clusterRadius) : height / 2;
-    }).strength(0.15));
-
-// Links
-var link = g.append("g")
-    .attr("class", "links")
-    .selectAll("line")
-    .data(links)
-    .join("line")
-    .attr("class", function(l) {
-        return isCrossTopic(l) ? "link link-cross" : "link";
-    })
-    .attr("stroke-width", function(l) {
-        return Math.max(0.6, l.weight * 0.5);
-    });
-
-// Nodes
-var node = g.append("g")
-    .attr("class", "nodes")
-    .selectAll("g")
-    .data(nodes)
-    .join("g")
-    .call(d3.drag()
-        .on("start", function(e, d) {
-            if (!e.active) sim.alphaTarget(0.3).restart();
-            d.fx = d.x;
-            d.fy = d.y;
-        })
-        .on("drag", function(e, d) {
-            d.fx = e.x;
-            d.fy = e.y;
-        })
-        .on("end", function(e, d) {
-            if (!e.active) sim.alphaTarget(0);
-            d.fx = null;
-            d.fy = null;
-        }));
-
-node.append("circle")
-    .attr("class", "node-circle")
-    .attr("r", function(d) { return rScale(d.degree); })
-    .attr("fill", function(d) { return color(d.group); })
-    .attr("stroke", "#fff")
-    .attr("stroke-width", 2);
-
-node.append("text")
-    .attr("class", "node-label")
-    .text(function(d) { return d.shortTitle; })
-    .attr("dy", function(d) { return rScale(d.degree) + 13; });
-
-// Tooltip
-var tooltip = d3.select("#tooltip");
-
-node.on("mouseenter", function(e, d) {
-    d3.select(this).select("circle")
-        .attr("stroke", "#ffd700")
-        .attr("stroke-width", 3);
-
-    var connected = links.filter(function(l) {
-        var s = (typeof l.source === 'object') ? l.source.id : l.source;
-        var t = (typeof l.target === 'object') ? l.target.id : l.target;
-        return s === d.id || t === d.id;
-    });
-
-    tooltip.html(
-        '<b>' + d.title + '</b><br>' +
-        '<span style="opacity:0.7">' + d.topic_zh + (d.subtitle ? ' · ' + d.subtitle : '') + '</span><br>' +
-        '<span style="opacity:0.5;font-size:11px">关联 ' + connected.length + ' 张卡片</span>'
-    ).classed("show", true);
-})
-.on("mousemove", function(e) {
-    tooltip.style("left", (e.pageX + 16) + "px")
-           .style("top", (e.pageY - 12) + "px");
-})
-.on("mouseleave", function() {
-    d3.select(this).select("circle")
-        .attr("stroke", "#fff")
-        .attr("stroke-width", 2);
-    tooltip.classed("show", false);
-});
-
-// Tick
-sim.on("tick", function() {
-    link
-        .attr("x1", function(d) { return d.source.x; })
-        .attr("y1", function(d) { return d.source.y; })
-        .attr("x2", function(d) { return d.target.x; })
-        .attr("y2", function(d) { return d.target.y; });
-    node.attr("transform", function(d) {
-        return "translate(" + d.x + "," + d.y + ")";
-    });
-});
-
-// Resize
-window.addEventListener("resize", function() {
-    width = window.innerWidth;
-    height = window.innerHeight;
-    clusterRadius = Math.min(width, height) * 0.32;
-    sim.force("center", d3.forceCenter(width / 2, height / 2));
-    sim.force("clusterX", d3.forceX(function(d) {
-        var c = clusterCenters[d.topic];
-        return c ? (width / 2 + c.x * clusterRadius) : width / 2;
-    }).strength(0.15));
-    sim.force("clusterY", d3.forceY(function(d) {
-        var c = clusterCenters[d.topic];
-        return c ? (height / 2 + c.y * clusterRadius) : height / 2;
-    }).strength(0.15));
-    sim.alpha(0.3).restart();
-});
-
-// 3秒后稳定化
-setTimeout(function() {
-    sim.alpha(0.05).restart();
-}, 3000);
-</script>
-</body>
-</html>
+</script></body></html>

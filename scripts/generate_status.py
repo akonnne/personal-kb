@@ -19,8 +19,9 @@ def generate_status():
     stats = get_stats()
     now = datetime.now().strftime("%Y-%m-%d %H:%M")
 
-    # 数据库大小
-    db_path = PROJECT_ROOT / "system" / "australia.db"
+    # [FIX] 数据库名自动取 workspace 目录名
+    db_name = PROJECT_ROOT.name + ".db"
+    db_path = PROJECT_ROOT / "system" / db_name
     db_size = db_path.stat().st_size / 1024 if db_path.exists() else 0
 
     lines = []

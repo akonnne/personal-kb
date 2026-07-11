@@ -190,7 +190,9 @@ html_content = f"""<!DOCTYPE html>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>澳洲策略知识图谱</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"
+        onerror="this.onerror=null;this.src='./d3.min.js'"
+        integrity="sha256-..." crossorigin="anonymous"></script>
 <style>
 * {{ margin:0; padding:0; box-sizing:border-box; }}
 body {{
