@@ -546,3 +546,65 @@ print(f"   孤立节点：{sum(1 for n in nodes if n['degree'] == 0)}")
 print(f"   跨主题边：{cross_topic_count}")
 print(f"   主题数：{n_topics}")
 print(f"   主题：{active_topics}")
+
+# ══════════════════════════════════════════
+# [FIX] 图谱验证指标 — 终结人工肉眼调试
+# ══════════════════════════════════════════
+import sys as _sys
+do_validate = "--validate" in _sys.argv
+
+# 指标 1: 跨主题连接占比
+cross_ratio = cross_topic_count / len(links) * 100 if links else 0
+
+# 指标 2: 孤立率
+isolated = sum(1 for n in nodes if n["degree"] == 0)
+isolated_ratio = isolated / len(nodes) * 100 if nodes else 0
+
+# 指标 3: 主题内度分布
+topic_degrees = defaultdict(list)
+for n in nodes:
+    topic_degrees[n["topic"]].append(n["degree"])
+topic_stats = {}
+for t, degs in topic_degrees.items():
+    topic_stats[t] = {
+        "count": len(degs),
+        "avg_degree": sum(degs) / len(degs) if degs else 0,
+        "max_degree": max(degs) if degs else 0,
+    }
+
+print(f"\n{'='*50}")
+print(f"  图谱健康报告")
+print(f"{'='*50}")
+print(f"  跨主题占比:   {cross_ratio:.1f}% {'✅' if 3 <= cross_ratio <= 40 else '❌ 异常'}"
+      f" (理想: 3%-40%)")
+print(f"  孤立节点率:   {isolated_ratio:.1f}% {'✅' if isolated_ratio == 0 else '❌ 有孤立'}"
+      f" (理想: 0%)")
+print(f"  总节点/边:    {len(nodes)}/{len(links)}"
+      f" {'✅' if len(links) >= len(nodes) * 1.5 else '⚠ 连接稀疏'}")
+print(f"  主题内度分布:")
+for t in sorted(topic_stats.keys()):
+    s = topic_stats[t]
+    flag = "✅" if s["avg_degree"] >= 2 else "⚠ 度偏低"
+    print(f"    {t}: {s['count']}节点 / "
+          f"平均{s['avg_degree']:.1f}度 / 最高{s['max_degree']}度 {flag}")
+
+# 自动断言（--validate 模式）
+if do_validate:
+    errors = []
+    if isolated_ratio > 0:
+        errors.append(f"孤立节点率 {isolated_ratio:.1f}%（应为 0%）")
+    if cross_ratio < 3 and n_topics > 1:
+        errors.append(f"跨主题比 {cross_ratio:.1f}% 过低（应 ≥3%，多主题时需跨主题连接）")
+    if cross_ratio > 50:
+        errors.append(f"跨主题比 {cross_ratio:.1f}% 过高（应 ≤50%，过度跨主题会模糊簇结构）")
+    if len(links) < len(nodes):
+        errors.append(f"边数 {len(links)} < 节点数 {len(nodes)}（图多为树状/断裂）")
+    
+    if errors:
+        print(f"\n  ❌ 验证失败 ({len(errors)} 项):")
+        for e in errors:
+            print(f"     - {e}")
+        _sys.exit(1)
+    else:
+        print(f"\n  ✅ 验证通过 — 所有指标在健康范围内")
+        _sys.exit(0)

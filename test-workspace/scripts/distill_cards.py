@@ -47,6 +47,8 @@ def extract_cards(strategy_path):
     tags = fm.get('tags', [])
     if isinstance(tags, str):
         tags = [tags]
+    # [FIX] tag 跨主题：把文档的 topic 追加到 tag，消除跨主题盲区
+    tags = list(set(tags + topic))
     
     source = strategy_path.name
     cards = []
@@ -134,31 +136,56 @@ def extract_cards(strategy_path):
 
 
 def main():
-    all_cards = []
-    card_links = []  # 知识图谱的连接
+    # [FIX] 增量蒸馏：记录 mtime，只重新提取变化的文件
+    cache_path = CARDS_DIR / ".distill_cache.json"
+    cards_cache_path = CARDS_DIR / ".distill_cards_cache.json"
+    
+    mtime_cache = {}
+    cards_cache = {}
+    if cache_path.exists():
+        mtime_cache = json.loads(cache_path.read_text(encoding='utf-8'))
+    if cards_cache_path.exists():
+        cards_cache = json.loads(cards_cache_path.read_text(encoding='utf-8'))
     
     strategy_files = sorted(STRATEGIES_DIR.glob("*.md"))
     print(f"发现 {len(strategy_files)} 篇策略文档")
     
+    all_cards = []
+    changed = 0
+    skipped = 0
     for sf in strategy_files:
+        mtime = sf.stat().st_mtime
+        key = sf.name
+        if key in mtime_cache and mtime_cache[key] >= mtime and key in cards_cache:
+            skipped += 1
+            all_cards.extend(cards_cache[key])
+            print(f"  ⏭ {sf.name}: 跳过（未变化，{len(cards_cache[key])} 张卡片）")
+            continue
+        
+        changed += 1
         cards = extract_cards(sf)
-        print(f"  {sf.name}: 提取 {len(cards)} 张卡片")
-        
-        # 建立卡片之间的连接（同主题的卡片互联）
-        for c in cards:
-            for oc in all_cards:
-                shared_topics = set(c.get('topic', []) or []) & set(oc.get('topic', []) or [])
-                shared_tags = set(c.get('tags', []) or []) & set(oc.get('tags', []) or [])
-                if len(shared_topics) >= 2 or len(shared_tags) >= 3:
-                    card_links.append({
-                        "source": c["id"],
-                        "target": oc["id"],
-                        "weight": len(shared_topics) * 2 + len(shared_tags)
-                    })
-        
+        mtime_cache[key] = mtime
+        cards_cache[key] = cards
         all_cards.extend(cards)
+        print(f"  📝 {sf.name}: 提取 {len(cards)} 张卡片")
     
-    # 写入索引 JSON
+    # 保存缓存
+    cache_path.write_text(json.dumps(mtime_cache, ensure_ascii=False), encoding='utf-8')
+    cards_cache_path.write_text(json.dumps(cards_cache, ensure_ascii=False), encoding='utf-8')
+    
+    # 全量重建卡片间连接（索引不变，但连接需要全量重算）
+    card_links = []
+    for i, c in enumerate(all_cards):
+        for j in range(i + 1, len(all_cards)):
+            oc = all_cards[j]
+            shared_topics = set(c.get('topic', []) or []) & set(oc.get('topic', []) or [])
+            shared_tags = set(c.get('tags', []) or []) & set(oc.get('tags', []) or [])
+            if len(shared_topics) >= 2 or len(shared_tags) >= 3:
+                card_links.append({
+                    "source": c["id"],
+                    "target": oc["id"],
+                    "weight": len(shared_topics) * 2 + len(shared_tags)
+                })
     index = {
         "total_cards": len(all_cards),
         "total_links": len(card_links),
