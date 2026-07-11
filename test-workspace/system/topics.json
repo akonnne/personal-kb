@@ -1,11 +1,11 @@
 {
   "version": "1.0",
   "topics": [
-    {"name": "backend", "zh": "后端开发", "keywords": ["后端", "API", "微服务", "数据库", "Go", "Java"]},
-    {"name": "frontend", "zh": "前端开发", "keywords": ["前端", "React", "Vue", "UI", "CSS", "TypeScript"]},
-    {"name": "devops", "zh": "运维部署", "keywords": ["运维", "Docker", "K8s", "CI/CD", "部署", "监控"]},
-    {"name": "architecture", "zh": "系统架构", "keywords": ["架构", "设计模式", "分布式", "高可用", "性能"]},
-    {"name": "career", "zh": "职业发展", "keywords": ["职业", "面试", "晋升", "技术管理", "成长"]},
-    {"name": "general", "zh": "通用", "keywords": ["综合", "其他", "通用"]}
+    {"name": "visa", "zh": "签证", "keywords": ["签证", "189", "190", "491", "500", "PR", "永居", "技术移民", "配额", "获邀"]},
+    {"name": "study", "zh": "留学", "keywords": ["留学", "大学", "申请", "offer", "课程", "学生签证"]},
+    {"name": "language", "zh": "语言", "keywords": ["雅思", "PTE", "托福", "英语", "四个7", "四个8"]},
+    {"name": "assessment", "zh": "职业评估", "keywords": ["职业评估", "ACS", "EA", "VETASSESS", "ANMAC"]},
+    {"name": "policy", "zh": "政策", "keywords": ["政策", "改革", "新政", "7月1日", "配额"]},
+    {"name": "living", "zh": "生活", "keywords": ["生活", "气候", "城市", "租房", "交通"]}
   ]
 }
