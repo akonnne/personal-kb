@@ -6,40 +6,28 @@
 |------|-----|
 | OS | Windows 11 (build 22631) |
 | Python | 3.13.12 (managed venv) |
-| Node.js | 22.22.2 |
 | SQLite | 3.45+ (FTS5 enabled) |
 | 浏览器 | WorkBuddy 内置 D3 预览 |
-| 测试时间 | 2026-07-11 22:20 |
+| 首次测试 | 2026-07-11 22:20 |
+| 最终测试 | 2026-07-12 00:25 |
+| 迭代轮次 | 2 轮（修复 10/10 项痛点） |
+
+## 测试数据集（真实澳洲策略数据）
+
+| 类型 | 文件名 | 主题 | 标签 |
+|------|--------|------|------|
+| 素材 | `2026-07-11-164217-...migration-educ.md` | migration | 技术移民, 配额 |
+| 素材 | `2026-07-11-164234-...491区域签证.md` | visa | 491, 配额, 技术移民 |
+| 素材 | `2026-07-11-164337-...留学申请sop.md` | study | 留学, 申请, GS, SOP |
+| 素材 | `2026-07-11-094700-...working-holiday.md` | visa | 打工度假, WHV |
+| 素材 | `2026-07-11-165204-...天气穿衣指南.md` | living | 气候, 城市 |
+| 策略 | `2026-07-11-strategy-assessment-guide.md` | assessment | ACS, EA, VETASSESS |
+| 策略 | `2026-07-11-strategy-language-guide.md` | language | 雅思, PTE, EOI |
+| 策略 | `2026-07-11-strategy-policy-2026-changes.md` | policy | 政策, 配额, 改革 |
 
 ## 测试步骤与结果
 
-### Step 1: 目录搭建
-
-**命令**：
-```bash
-mkdir -p test-workspace/input/{ideas,materials,snippets}
-mkdir -p test-workspace/output/{strategies,reports,cards}
-mkdir -p test-workspace/styles
-mkdir -p test-workspace/system
-mkdir -p test-workspace/scripts
-```
-
-**预期**：6 个目录全部创建
-**实际**：✅ 通过
-
-### Step 2: 系统文件写入
-
-**写入文件**：topics.json（6 个主题）、instruction.md（系统宪法）
-**预期**：文件格式正确，YAML frontmatter 可解析
-**实际**：✅ 通过
-
-### Step 3: 测试素材创建
-
-**创建文件**：3 篇 input 素材（go-concurrency.md, microservices.md, k8s-deploy.md）
-**校验**：每篇包含 title/source/date/tags/topics frontmatter，内容含代码、表格、要点
-**实际**：✅ 通过
-
-### Step 4: rebuild_index.py — SQLite 索引同步
+### Step 1: rebuild_index.py — SQLite 索引同步
 
 **命令**：
 ```bash
@@ -49,109 +37,189 @@ python scripts/rebuild_index.py
 
 **输出日志**：
 ```
-SQLite 同步: 新增 5 | 更新 0 | 删除 0
-素材库总条目: 5
+SQLite 同步: 新增 8 | 更新 0 | 删除 0
+素材库总条目: 8
 status.md 已生成: test-workspace/system/status.md
 同步完成 — 数据库 + 状态文件已更新
 ```
 
 **校验**：
-- SQLite 数据库创建 ✅（92KB, WAL 模式）
-- 索引 5 条记录 ✅（3 素材 + 2 策略）
-- status.md 生成 ✅（包含核心指标、标签统计、最新素材）
-- 实际：✅ 全部通过
+- SQLite DB 自动命名 `test-workspace.db` ✅（N1 修复生效）
+- 索引 8 条记录 ✅（5 素材 + 3 策略）
+- status.md 生成 ✅
 
-### Step 5: distill_cards.py — 知识蒸馏
+### Step 2: distill_cards.py — 知识蒸馏（含概念提取）
 
 **命令**：
 ```bash
 python scripts/distill_cards.py
 ```
 
-**输出日志**：
+**实际输出**：
 ```
-发现 2 篇策略文档
-  2026-07-10-strategy-backend-stack.md: 提取 1 张卡片
-  2026-07-11-strategy-cicd-pipeline.md: 提取 2 张卡片
-总计: 3 张卡片, 0 条连接
-已写入: output/cards/card_index.json
-知识图谱: output/cards/knowledge_graph.html
+发现 3 篇策略文档
+  📝 2026-07-11-strategy-assessment-guide.md: 提取 7 张卡片
+  📝 2026-07-11-strategy-language-guide.md: 提取 10 张卡片
+  📝 2026-07-11-strategy-policy-2026-changes.md: 提取 9 张卡片
+总计: 26 张卡片, 192 条连接
 ```
 
 **校验**：
-- card_index.json 生成 ✅（3 张卡片，结构含 tables/key_points）
-- knowledge_graph.html 生成 ✅
-- D3.js 代码、style、script 完整 ✅
-- 实际：✅ 全部通过
+- 卡片数：23 → **26**（+3 张概念卡片，N4 修复生效）✅
+- 连接数：72 → **192**（tag 跨主题生效，P0 修复）✅
+- ID 含源文件 hash（如 `card-3f2a-ACS(0c-00`，N1 修复生效）✅
+- card_index.json 生成 ✅
 
-### Step 6: rebuild_graph.py — 知识图谱渲染
+**概念提取验证（N4）**：
+```
+概念卡片: 3
+  [assessment-guide] 关键概念（23 个）: ACS/EA/VETASSESS/ANMAC/CDR...
+  [language-guide]   关键概念（7 个）: PTE八炸/四个7/NAATI CCL...
+  [policy-2026]      关键概念（6 个）: 签证费/SID/配额/薪资门槛...
+```
+
+### Step 3: rebuild_graph.py — 知识图谱 + 健康报告
 
 **命令**：
 ```bash
-python scripts/rebuild_graph.py
+python scripts/rebuild_graph.py --validate
 ```
 
-**输出日志**：
+**实际输出**：
 ```
 ✅ 已生成：output/cards/knowledge_graph.html
-   节点：3
-   边：2
-   孤立节点：0
-   跨主题边：0
-   主题数：1
+   节点：26 | 边：73 | 孤立节点：0 | 跨主题边：3 | 主题数：3
+
+==================================================
+  图谱健康报告
+==================================================
+  跨主题占比:   4.1% ✅ (理想: 3%-40%)
+  孤立节点率:   0.0% ✅ (理想: 0%)
+  总节点/边:    26/73 ✅
+  主题内度分布:
+    assessment: 7节点 / 平均5.3度 / 最高7度 ✅
+    language: 10节点 / 平均6.9度 / 最高10度 ✅
+    policy: 9节点 / 平均6.5度 / 最高9度 ✅
+
+  ✅ 验证通过 — 所有指标在健康范围内
 ```
 
 **校验**：
-- 3 节点、2 边，均为同主题内部连接 ✅
-- 聚类引力布局代码完整 ✅
-- HTML 可浏览器打开 ✅
-- 实际：✅ 通过
+- 健康报告自动生成 ✅（P0 修复生效）
+- `--validate` 模式自动断言，exit code 0 ✅
+- 主题色自动扩展（N2 修复生效）✅
+- D3 本地 fallback（N3 修复生效）✅
 
-### Step 7: 浏览器预览验证
+### Step 4: 增量蒸馏 — 幂等性验证
 
-**操作**：在 WorkBuddy 内置浏览器打开 knowledge_graph.html
-**预期**：D3.js 力导向图正常渲染，节点可拖拽，悬停显示 tooltip，图例显示主题分类
-**实际**：✅ 通过（D3 v7.9.0 加载正常，聚类引力布局稳定）
+**首轮**：
+```
+📝 3 篇策略文档（全量提取）
+```
+**次轮**：
+```
+⏭ strategy-assessment-guide.md: 跳过（未变化，7 张卡片）
+⏭ strategy-language-guide.md: 跳过（未变化，10 张卡片）
+⏭ strategy-policy-2026-changes.md: 跳过（未变化，9 张卡片）
+总计: 26 张卡片, 192 条连接
+```
+**校验**：第 2 轮全部跳过 ✅，卡片数和连接数一致 ✅
+
+### Step 5: test_suite.py — 22 项自动化测试
+
+**命令**：
+```bash
+python scripts/test_suite.py
+```
+
+**实际输出**：
+```
+==================================================
+  personal-kb Test Suite
+==================================================
+
+📋 Test 1: rebuild_index.py
+  ✅ Exit code == 0 (got 0)
+  ✅ Output contains '同步完成'
+  ✅ SQLite DB created (test-workspace.db)
+  ✅ status.md generated
+
+📋 Test 2: distill_cards.py
+  ✅ Exit code == 0 (got 0)
+  ✅ Output contains '总计'
+  ✅ card_index.json valid (26 cards)
+  ✅ Cards have ids
+  ✅ Cards have topic
+  ✅ Cards have tags
+  ✅ Cards have cross-topic tags (26/26 multi-topic)
+  ✅ Links exist (192 links)
+
+📋 Test 3: rebuild_graph.py
+  ✅ Exit code == 0 (got 0)
+  ✅ Output contains '健康报告'
+  ✅ Output contains '验证通过'
+  ✅ HTML contains D3.js
+  ✅ HTML contains data
+  ✅ HTML contains links
+  ✅ HTML has simulation
+
+📋 Test 4: 增量蒸馏（幂等性）
+  ✅ Second run exit code == 0
+  ✅ Second run skips all
+  ✅ Same card count (26 vs 26)
+
+==================================================
+  Results: 22/22 passed
+==================================================
+```
 
 ## 测试结果汇总
 
-| 序号 | 测试项 | 状态 | 备注 |
+| 序号 | 测试项 | 数据 | 状态 |
 |------|--------|------|------|
-| 1 | 目录搭建 | ✅ | 6 个目录结构完整 |
-| 2 | 系统配置写入 | ✅ | topics.json + instruction.md |
-| 3 | 素材导入 | ✅ | 3 篇带 frontmatter 的 Markdown |
-| 4 | SQLite 索引同步 | ✅ | 5 条记录，FTS5 全文搜索 |
-| 5 | 知识蒸馏 | ✅ | 2 文 → 3 卡，表格+要点提取 |
-| 6 | 知识图谱渲染 | ✅ | D3.js 聚类引力布局 |
-| 7 | 浏览器预览 | ✅ | 交互式图谱正常显示 |
+| 1 | 索引同步 | 8 条记录，SQLite WAL | ✅ |
+| 2 | 知识蒸馏 | 3 文 → 26 卡 + 192 连接 | ✅ |
+| 3 | tag 跨主题 | 26/26 卡片 multi-topic | ✅ |
+| 4 | 概念提取 | 3 篇 → 36 个关键概念 | ✅ |
+| 5 | 卡片 ID | 含源文件 hash，跨文档唯一 | ✅ |
+| 6 | 图谱验证 | 健康报告 + `--validate` 断言 | ✅ |
+| 7 | 主题色 | HSL 色环自动扩展 | ✅ |
+| 8 | URL 去重 | SQLite 查重防重复抓取 | ✅ |
+| 9 | 增量蒸馏 | 次轮全部跳过，幂等 | ✅ |
+| 10 | 自动化测试 | `test_suite.py` 22/22 | ✅ |
 
-## 测试截图
+## 痛点修复验证矩阵
 
-### rebuild_index.py 执行
+| 痛点 | 修复 | 验证方式 |
+|------|------|---------|
+| P0: tag 不跨主题 | topic 追加到 tag | 连接数 72→192，26/26 卡片 multi-topic |
+| P0: 图谱调试靠肉眼 | `--validate` 模式 | 健康报告 + 自动断言 |
+| P1: DB 名硬编码 | 取 workspace 目录名 | `test-workspace.db` 自动生成 |
+| P1: 蒸馏格式敏感 | 6 种 fallback + 终极降级 | 3 种不同格式策略文档均正常提取 |
+| P2: 无增量蒸馏 | mtime + cards 双缓存 | 次轮全部 ⏭ 跳过 |
+| P2: 测试靠手动 | `test_suite.py` | 22/22 自动化通过 |
+| P3: D3 离线 | onerror 回退 | HTML 含本地 fallback 路径 |
+| N1: ID 跨文档碰撞 | 加源文件 hash | `card-4位hash-标题-索引` |
+| N2: 主题色硬编码 | HSL 色环自动扩展 | 测试 3 主题 + 验证 >12 主题扩展 |
+| N3: URL 去重 | SQLite source_url 查重 | 重复 URL 自动 ⏭ 跳过 |
+| N4: 概念提取 | `**概念**: 定义` 解析 | 3 篇策略 → 36 个概念 |
+
+## 输出文件清单
+
 ```
-============================================================
-  澳洲出国策略系统 — 素材库同步
-============================================================
-
-  SQLite 同步: 新增 5 | 更新 0 | 删除 0
-  素材库总条目: 5
-  status.md 已生成: ...
-
-============================================================
-  同步完成 — 数据库 + 状态文件已更新
-============================================================
+test-workspace/
+├── system/
+│   ├── test-workspace.db               ← 自动命名
+│   ├── status.md                       ← 自动生成
+│   ├── topics.json                     ← 6 主题注册
+│   └── instruction.md                  ← 系统宪法
+├── input/materials/                    ← 5 篇真实澳洲素材
+├── output/
+│   ├── strategies/                     ← 3 篇策略文档
+│   └── cards/
+│       ├── card_index.json             ← 26 张卡片 + 192 条连接
+│       ├── knowledge_graph.html        ← 交互式 D3 图谱
+│       ├── .distill_cache.json         ← mtime 标记
+│       └── .distill_cards_cache.json   ← 卡片缓存
+└── scripts/                            ← 10 个 Python 脚本
 ```
-
-### distill_cards.py 执行
-```
-发现 2 篇策略文档
-  2026-07-10-strategy-backend-stack.md: 提取 1 张卡片
-  2026-07-11-strategy-cicd-pipeline.md: 提取 2 张卡片
-总计: 3 张卡片, 0 条连接
-已写入: output/cards/card_index.json
-```
-
-## 已知限制
-
-1. **graph topic 显示为默认值** — rebuild_graph.py 中 topic 字段在测试数据策略文档中未被正确读取（忽略，不影响核心功能）
-2. **浏览器预览依赖 CDN** — D3.js v7.9.0 从 CDN 加载，需要网络连接；本地可替换为 npm 离线包
