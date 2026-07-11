@@ -46,7 +46,8 @@ def extract_cards(strategy_path):
     fm, body = parse_frontmatter(text)
     
     title = fm.get('title', strategy_path.stem)
-    topic = fm.get('topic', [])
+    # [FIX] 兼容 topic 和 topics 两种 frontmatter 写法
+    topic = fm.get('topic', fm.get('topics', []))
     if isinstance(topic, list):
         topic = topic
     tags = fm.get('tags', [])
