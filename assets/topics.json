@@ -1,0 +1,79 @@
+{
+  "topics": [
+    {
+      "id": "visa",
+      "name": "签证政策",
+      "description": "澳洲各类签证政策、申请条件、审批流程、配额变化",
+      "keywords": ["189", "190", "491", "485", "500", "600", "820", "309", "186", "482", "494", "EOI", "州担保", "职业评估", "Point Test"]
+    },
+    {
+      "id": "study",
+      "name": "留学申请",
+      "description": "澳洲留学申请流程、材料准备、时间规划、入学要求",
+      "keywords": ["申请", "offer", "coe", "GTE", "SOP", "推荐信", "成绩单", "学历认证", "申请截止", "Intake"]
+    },
+    {
+      "id": "migration",
+      "name": "移民路径",
+      "description": "技术移民、雇主担保、家庭团聚等移民路径的策略分析与对比",
+      "keywords": ["技术移民", "雇主担保", "配偶移民", "投资移民", "GTI", "PR", "入籍", "打分", "路径对比"]
+    },
+    {
+      "id": "job",
+      "name": "工作机会",
+      "description": "澳洲就业市场、行业分析、薪资水平、求职策略",
+      "keywords": ["就业", "薪资", "行业", "LinkedIn", "Seek", "内推", "实习", "Graduate Program", "职业发展"]
+    },
+    {
+      "id": "living",
+      "name": "生活成本",
+      "description": "澳洲各城市生活成本、住房、交通、医疗、日常开销",
+      "keywords": ["房租", "物价", "医保", "Medicare", "公共交通", "税费", "兼职", "生活预算"]
+    },
+    {
+      "id": "language",
+      "name": "语言考试",
+      "description": "雅思、PTE、托福等语言考试的备考策略与分数要求",
+      "keywords": ["IELTS", "PTE", "TOEFL", "四个7", "四个8", "语言加分", "备考"]
+    },
+    {
+      "id": "university",
+      "name": "院校选择",
+      "description": "澳洲大学排名、专业特色、学费对比、地理位置分析",
+      "keywords": ["Group of Eight", "Go8", "UTS", "RMIT", "QUT", "QS排名", "专业排名", "学费", "奖学金"]
+    },
+    {
+      "id": "major",
+      "name": "专业方向",
+      "description": "澳洲紧缺职业列表对应专业、MLTSSL/STSOL分析、就业前景",
+      "keywords": ["MLTSSL", "STSOL", "紧缺职业", "IT", "工程", "护理", "会计", "教育", "社工", "蓝领"]
+    },
+    {
+      "id": "policy",
+      "name": "政策动态",
+      "description": "澳洲移民留学政策的最新变化、趋势分析、影响评估",
+      "keywords": ["新政", "改革", "配额", "移民部长", "大选", "法案", "趋势"]
+    },
+    {
+      "id": "finance",
+      "name": "资金准备",
+      "description": "留学移民资金规划、学费、生活费、资金证明、汇率",
+      "keywords": ["预算", "学费", "生活费", "资金证明", "汇率", "贷款", "奖学金", "打工"]
+    },
+    {
+      "id": "assessment",
+      "name": "评估体系",
+      "description": "职业评估机构、评估要求、流程、常见问题",
+      "keywords": ["ACS", "EA", "VETASSESS", "CPA", "ANMAC", "AITSL", "TRA", "职业评估", "年限"]
+    },
+    {
+      "id": "regional",
+      "name": "地区选择",
+      "description": "澳洲各州/领地对比、偏远地区政策、城市生活差异",
+      "keywords": ["悉尼", "墨尔本", "布里斯班", "珀斯", "阿德莱德", "堪培拉", "塔斯马尼亚", "北领地", "偏远地区", "491"]
+    }
+  ],
+  "input_types": ["idea", "material", "snippet"],
+  "output_types": ["strategy", "pathway", "report", "checklist"],
+  "version": "1.0.0"
+}

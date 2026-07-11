@@ -1,0 +1,5 @@
+personal-kb.log
+.workbuddy/
+test-workspace/system/*.db
+__pycache__/
+*.pyc

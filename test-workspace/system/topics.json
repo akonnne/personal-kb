@@ -1,0 +1,11 @@
+{
+  "version": "1.0",
+  "topics": [
+    {"name": "backend", "zh": "后端开发", "keywords": ["后端", "API", "微服务", "数据库", "Go", "Java"]},
+    {"name": "frontend", "zh": "前端开发", "keywords": ["前端", "React", "Vue", "UI", "CSS", "TypeScript"]},
+    {"name": "devops", "zh": "运维部署", "keywords": ["运维", "Docker", "K8s", "CI/CD", "部署", "监控"]},
+    {"name": "architecture", "zh": "系统架构", "keywords": ["架构", "设计模式", "分布式", "高可用", "性能"]},
+    {"name": "career", "zh": "职业发展", "keywords": ["职业", "面试", "晋升", "技术管理", "成长"]},
+    {"name": "general", "zh": "通用", "keywords": ["综合", "其他", "通用"]}
+  ]
+}

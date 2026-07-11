@@ -1,0 +1,93 @@
+{
+  "total_cards": 3,
+  "total_links": 0,
+  "cards": [
+    {
+      "id": "card-核心结论-00",
+      "type": "card",
+      "title": "后端技术栈选型策略 — 核心结论",
+      "subtitle": "",
+      "topic": [],
+      "tags": [
+        "Go",
+        "Java",
+        "Python",
+        "技术选型",
+        "架构决策"
+      ],
+      "source": "2026-07-10-strategy-backend-stack.md",
+      "key_points": [
+        "**没有银弹。** Go 在性能和简洁性上胜出，Java 在企业生态上无可替代，Python 在快速原型和 AI 集成上效率最高。选型取决于团队背景和业务场景。"
+      ],
+      "summary": ""
+    },
+    {
+      "id": "card-Stage4验证2min-00",
+      "type": "card",
+      "title": "Stage 4: 验证（~2min）",
+      "subtitle": "表格: 环节 vs 推荐工具",
+      "topic": [],
+      "tags": [
+        "CI/CD",
+        "Docker",
+        "K8s",
+        "GitHub Actions",
+        "Helm"
+      ],
+      "source": "2026-07-11-strategy-cicd-pipeline.md",
+      "table_headers": [
+        "环节",
+        "推荐工具",
+        "备选"
+      ],
+      "table_data": [
+        [
+          "CI 引擎",
+          "GitHub Actions",
+          "GitLab CI / Jenkins"
+        ],
+        [
+          "镜像仓库",
+          "Harbor",
+          "Docker Hub / ECR"
+        ],
+        [
+          "配置管理",
+          "Helm",
+          "Kustomize"
+        ],
+        [
+          "部署策略",
+          "ArgoCD",
+          "Flux"
+        ],
+        [
+          "监控告警",
+          "Prometheus + Grafana",
+          "Datadog"
+        ]
+      ],
+      "summary": ""
+    },
+    {
+      "id": "card-核心结论-00",
+      "type": "card",
+      "title": "微服务部署流水线设计 — 核心结论",
+      "subtitle": "",
+      "topic": [],
+      "tags": [
+        "CI/CD",
+        "Docker",
+        "K8s",
+        "GitHub Actions",
+        "Helm"
+      ],
+      "source": "2026-07-11-strategy-cicd-pipeline.md",
+      "key_points": [
+        "**自动化是微服务运维的底线。** 当服务数量超过 5 个时，手动部署完全不可持续。一套标准的 CI/CD 流水线是微服务架构的必要基础设施。"
+      ],
+      "summary": ""
+    }
+  ],
+  "links": []
+}
