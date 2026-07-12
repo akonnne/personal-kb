@@ -31,18 +31,20 @@
 
 Skill 自动完成：**建目录 → 写系统宪法 → 注册主题 → 建风格模板 → 复制脚本 → 初始化数据库 → 生成状态报告**。
 
-### 核心工作流
+### 六条核心工作流
 
 ```
-用户给 URL → AI 抓取+自动分类 → input/materials/
-                  ↓
-         rebuild_index.py → SQLite+FTS5 全文搜索
-                  ↓
-用户提需求 → AI 检索+综合 → output/strategies/
-                  ↓
-         distill_cards.py → 知识卡片 + 交互式图谱
-                  ↓
-         定期 Spark 发现 → 找到「遗忘的跨主题关联」
+① 输入  用户给 URL → AI 抓取+自动分类 → input/materials/
+                   ↓
+② 索引  rebuild_index.py → SQLite+FTS5 全文搜索
+                   ↓
+③ 输出  用户提需求 → AI 检索+综合 → output/strategies/
+                   ↓
+④ 蒸馏  distill_cards.py → 知识卡片 + 交互式图谱
+                   ↓
+⑤ Spark 定期发现 → 找到「遗忘的跨主题关联」
+                   ↓
+⑥ 问答  用户直接问 → AI 检索数据库+策略文档 → 带引用回答
 ```
 
 ---
